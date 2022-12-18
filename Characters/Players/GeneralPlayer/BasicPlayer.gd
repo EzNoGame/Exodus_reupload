@@ -70,8 +70,10 @@ func update_velocity(delta):
 
 	#friction
 	else:
-		velocity.x = velocity.x*49/60
-
+		if velocity.x > 0:
+			velocity.x = velocity.x*49/60
+		else:
+			velocity.x = 0
 
 	#vertical movement
 

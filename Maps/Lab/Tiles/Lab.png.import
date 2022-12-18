@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/Lab.png-e782a9f113a69b989f46782149837090.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Maps/Lab/Tiles/Lab.png"
+dest_files=[ "res://.import/Lab.png-e782a9f113a69b989f46782149837090.stex" ]
+
 [params]
 
 compress/mode=0

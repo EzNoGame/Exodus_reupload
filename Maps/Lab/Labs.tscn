@@ -1,6 +1,7 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Maps/Lab/Ladder.tres" type="TileSet" id=1]
+[ext_resource path="res://Maps/Lab/Lab.tres" type="TileSet" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=60]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -463,7 +464,7 @@ rect_pivot_offset = Vector2( -76, -22 )
 
 [node name="TileMap" type="TileMap" parent="LR"]
 visible = false
-tile_set = SubResource( 108 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1

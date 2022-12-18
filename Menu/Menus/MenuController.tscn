@@ -43,5 +43,4 @@ anchor_bottom = 1.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BackGround"]
 position = Vector2( 320, 180 )
 frames = SubResource( 21 )
-frame = 3
 playing = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/particles/BulletParticle_1.tres" type="Material" id=1]
+
+[node name="BasicBulletParticle_1" type="Particles2D"]
+emitting = false
+amount = 60
+one_shot = true
+process_material = ExtResource( 1 )

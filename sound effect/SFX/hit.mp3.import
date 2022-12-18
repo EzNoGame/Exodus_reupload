@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hit.mp3-1b0e80df66bcdae210c4e6149e517a96.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/hit.mp3"
+dest_files=[ "res://.import/hit.mp3-1b0e80df66bcdae210c4e6149e517a96.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/icons/checkmark.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hovering"
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.99 ),
+"transitions": PoolRealArray( 12.5533, 0.0603712, 0.25 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+anims/hovering = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )

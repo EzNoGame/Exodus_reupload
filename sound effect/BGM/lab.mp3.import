@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lab.mp3-c4d7fe5079acbf55df57ed002c4d089b.mp3str"
+
+[deps]
+
+source_file="res://sound effect/BGM/lab.mp3"
+dest_files=[ "res://.import/lab.mp3-c4d7fe5079acbf55df57ed002c4d089b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

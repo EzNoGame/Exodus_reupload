@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/clicking sound.mp3-0fa3c7c1d8dce064c9cbc0b066093aba.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/clicking sound.mp3"
+dest_files=[ "res://.import/clicking sound.mp3-0fa3c7c1d8dce064c9cbc0b066093aba.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

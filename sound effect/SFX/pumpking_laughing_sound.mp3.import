@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pumpking_laughing_sound.mp3-79f1bbb7081c34fb98c1caa71178e8d8.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/pumpking_laughing_sound.mp3"
+dest_files=[ "res://.import/pumpking_laughing_sound.mp3-79f1bbb7081c34fb98c1caa71178e8d8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

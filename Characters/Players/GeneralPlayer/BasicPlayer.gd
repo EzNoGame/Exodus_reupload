@@ -2,16 +2,16 @@ extends BasicCharacter
 
 class_name Player
 
-var jump_acc : int = 195
-var curr_coyote_time : int = 15
-var max_coyote_time : int = 15
+var curr_coyote_time : int = 30
+var max_coyote_time : int = 30
 var jump_acc_counter = 0
 var jump = false
 var jump_frame_num = 10
 
 var curr_facing = true
 
-var shoot_CD = 5
+var base_CD = 5
+var calculated_CD
 var curr_shoot_CD = 5
 var need_to_add_bullet = false
 var need_to_burst = false
@@ -32,17 +32,40 @@ var attack_range = ''
 
 var state_machine
 
+var chip_list = {
+	num_red_chip = 0,
+	num_green_chip = 0,
+	num_blue_chip = 0
+}
+
+var _timer
+
+var id
+
+var EXP_to_next_level = 10
+var level = 0
 
 func _ready():
 
-	h_acc = 100
-	h_cap = 350
-	g_acc = 35
-	g_cap = 650
-	health_max = 100
-	armor = 0
-	friendly = true
+	self.h_acc = 90
+	self.h_cap = 260
+	self.g_acc = 40
+	self.g_cap = 550
+	self.j_acc = 95
+	self.base_health = 100
+	self.base_armor = 0
+	self.friendly = true
+	self.base_damage = 10
+	self.creator = self
+	self.EXP = 0
+	calculated_CD = base_CD
 	state_machine = $AnimationTree.get("parameters/playback")
+	_timer = Timer.new()
+	self.add_child(_timer)
+	_timer.connect("timeout", self, "_on_Timer_timeout")
+	_timer.set_wait_time(1.0)
+	_timer.set_one_shot(false) # Make sure it loops
+	_timer.start()
 	._ready()
 
 
@@ -70,8 +93,8 @@ func update_velocity(delta):
 
 	#friction
 	else:
-		if velocity.x > 0:
-			velocity.x = velocity.x*49/60
+		if abs(velocity.x) > 1:
+			velocity.x = velocity.x*28/30
 		else:
 			velocity.x = 0
 
@@ -80,7 +103,7 @@ func update_velocity(delta):
 	#gravity
 	if velocity.y < g_cap:	
 		velocity.y += g_acc
-
+	
 	if is_on_floor():
 		velocity.y = 5
 
@@ -102,7 +125,7 @@ func update_velocity(delta):
 		if jump_acc_counter < jump_frame_num:
 			if velocity.y > 0:
 				velocity.y = 0
-			velocity.y -= (jump_acc - 55-(jump_frame_num-jump_acc_counter)*5)
+			velocity.y -= j_acc*(1+0.1*abs(jump_acc_counter/2-jump_acc_counter))
 			jump_acc_counter += 1
 			
 		if jump_acc_counter == jump_frame_num:
@@ -124,7 +147,8 @@ func range_attack():
 	bullet = basic_att_bullet.instance()
 	bullet.position = $ShootingPoint.get_global_position()
 	bullet.direction = facing_right
-	bullet.creator = name
+	bullet.creator = self
+	bullet.damage = calculated_damage
 	need_to_add_bullet = true
 	animation_player.play('Attack')
 
@@ -157,20 +181,54 @@ func ult():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	#level control
+	if EXP >= EXP_to_next_level:
+		EXP -= EXP_to_next_level
+		level_up()
+	
 	#control attacking cd
 	if curr_shoot_CD > 0:
 		curr_shoot_CD -= 1
 	
 	#handling basic attack	
-	if Input.is_action_pressed("attack_player_%s" % [id]) and curr_shoot_CD == 0:
+	if Input.is_action_pressed("attack_player_%s" % [id]) and curr_shoot_CD <= 0:
 		if attack_range == 'range': 
 			range_attack()
 		elif attack_range == 'melee':
 			melee_attack()
-		curr_shoot_CD = shoot_CD
+		curr_shoot_CD = calculated_CD
 	
 	#handling animation and velocity update	
 	._process(delta)
 	
 	#handling ultimate
 	ult()
+
+func take_damage(dmg):
+	.take_damage(dmg)
+	state_machine.travel('hurt')
+
+func regen():
+	if health_curr < calculated_health:
+		health_curr += calculated_regen
+	
+func _process_stats():
+	calculated_health = base_health*(1+0.1*chip_list['num_green_chip'])
+	calculated_regen = base_regen*(1+0.3*chip_list['num_green_chip'])
+	calculated_damage = base_damage*(1+0.1*chip_list['num_red_chip'])
+	calculated_armor = chip_list['num_red_chip']*1.5
+	calculated_CD = base_CD * (1*pow(0.98,chip_list['num_blue_chip']))
+	#ult cd with data
+
+func _on_Timer_timeout():
+	_process_stats()
+	regen()
+
+func level_up():
+	level += 1
+	EXP_to_next_level = pow(level,2)*3 + 25
+	var i = rng.randi_range(0,2)
+	var keys = chip_list.keys()
+	var key = keys[i]
+	chip_list[key]+=1
+	print(level)

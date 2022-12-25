@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Characters/Addons/DamageDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Assets/particles/light/light.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PopUp"
@@ -71,6 +72,7 @@ tracks/1/keys = {
 }
 
 [node name="DmgDisplay" type="Node2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -96,3 +98,8 @@ margin_top = -12.5
 margin_right = 8.0
 margin_bottom = 12.5
 text = "11"
+
+[node name="Light2D" type="Light2D" parent="LabelControl"]
+position = Vector2( 16, 15 )
+texture = ExtResource( 2 )
+texture_scale = 0.05

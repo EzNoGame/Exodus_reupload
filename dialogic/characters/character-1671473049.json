@@ -1,0 +1,21 @@
+{
+	"color": "#ffff0000",
+	"description": "This is the main char of the game, a self aware AI with the dream of having a body.",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1671473049.json",
+	"mirror_portraits": false,
+	"name": "Alpha",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://icon.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

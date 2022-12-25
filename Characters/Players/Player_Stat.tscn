@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/font/MainGameFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Characters/Chips/Green_Chip.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Chips/Red_Chip.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Chips/under.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Chips/over.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Chips/Blue_Chip.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Chips/heart.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Chips/ult_top.png" type="Texture" id=8]
+[ext_resource path="res://Characters/Chips/ult_bot.png" type="Texture" id=9]
+[ext_resource path="res://Characters/Players/Player_Stat.gd" type="Script" id=10]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Control" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
+
+[node name="Heart" type="Sprite" parent="Control"]
+position = Vector2( 32, 16 )
+texture = ExtResource( 7 )
+
+[node name="Health" type="TextureProgress" parent="Control"]
+margin_right = 64.0
+margin_bottom = 32.0
+value = 50.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="GreenChip" type="Sprite" parent="Control"]
+position = Vector2( 8, 24 )
+texture = ExtResource( 2 )
+
+[node name="BlueChip" type="Sprite" parent="Control"]
+position = Vector2( 25, 24 )
+texture = ExtResource( 6 )
+
+[node name="RedChip" type="Sprite" parent="Control"]
+position = Vector2( 43, 24 )
+texture = ExtResource( 3 )
+
+[node name="Num_of_Green" type="Label" parent="Control"]
+margin_left = 10.0
+margin_top = 23.0
+margin_right = 20.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+text = "6x"
+
+[node name="Num_of_Red" type="Label" parent="Control"]
+margin_left = 47.0
+margin_top = 23.0
+margin_right = 57.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+text = "6x"
+
+[node name="Num_of_Blue" type="Label" parent="Control"]
+margin_left = 28.0
+margin_top = 23.0
+margin_right = 38.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+text = "6x"
+
+[node name="Level" type="TextureProgress" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+value = 15.0
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 8 )

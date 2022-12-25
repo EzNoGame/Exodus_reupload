@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=2]
 
-[ext_resource path="res://Maps/Lab/Ladder.tres" type="TileSet" id=1]
+[ext_resource path="res://Maps/Lab/objects/Ladder.tres" type="TileSet" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=60]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )

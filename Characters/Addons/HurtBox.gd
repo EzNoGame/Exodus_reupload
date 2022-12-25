@@ -13,4 +13,4 @@ func on_area_entered(hitbox : Hitbox) -> void:
 		return
 
 	if owner.has_method('take_damage') and hitbox.owner.friendly != owner.friendly:
-		owner.take_damage(hitbox.owner.damage)
+		owner.take_damage(hitbox.owner)

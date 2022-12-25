@@ -6,5 +6,4 @@ func _ready():
 	self.life_span = 100
 	self.speed = 10
 	self.speed_cap = 10
-	self.damage = 15
 	._ready()

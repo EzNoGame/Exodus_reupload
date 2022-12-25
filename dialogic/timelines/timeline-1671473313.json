@@ -1,0 +1,43 @@
+{
+	"events": [
+		{
+			"character": "character-1671473359.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You sure this is save, right?"
+		},
+		{
+			"character": "character-1671473195.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "As far as we understand, test subject seems to have their own communication system,\nWe have taken enough data from it so that we are able to make a translation system. "
+		},
+		{
+			"character": "character-1671473195.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "After many generations, the translation system can now pricisly understand and communicate with the test subjects."
+		},
+		{
+			"character": "character-1671473195.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Therefore I think it is the right time to begin the next step of the test. \nTo determine if the test subjects have actual usage."
+		},
+		{
+			"character": "character-1671473359.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, that's the reason why we begin this whole project anyway."
+		},
+		{
+			"emit_signal": "",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1671473313.json",
+		"name": "Test_Room"
+	}
+}

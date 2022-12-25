@@ -15,8 +15,13 @@ var test_room = preload("res://Maps/Test_Room.tscn")
 var Ladder_List = []
 var cell_list = []
 
+var elevator = preload("res://Maps/Lab/objects/Player_Spawner.tscn")
+
 var WINDOW_WIDTH = 640
 var WINDOW_HEIGHT = 320
+
+var map_range_x
+var map_range_y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,15 +45,25 @@ func _ready():
 		var playernum = "Player%s" %[i]
 		var character = "res://Characters/Players/PumpKing/PumpKing.tscn"
 		var player = load(character).instance()
-		
-		for j in range(100):
-			if map.get_node("CollisionLayer").get_cellv($Map/CollisionLayer.world_to_map(Vector2(j,j))) == -1 and map.get_node("CollisionLayer").get_cellv($Map/CollisionLayer.world_to_map(Vector2(j,j-16))) == -1:
-				player.position = Vector2(j,j)
-				break
 		player.id = i
 		player.set_name("Player_%s" % [i])
+		var temp = elevator.instance()
 		
-		$PlayerList.add_child(player)
+		temp.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[0,200], [0,200], 4, 4)
+		player.position = temp.position
+		temp.player = player
+
+		$ObjectList.add_child(temp)
+		
+	map_range_x = [map.get_node("CollisionLayer").get_used_rect().position.x, map.get_node("CollisionLayer").get_used_rect().end.x]
+	map_range_y = [map.get_node("CollisionLayer").get_used_rect().position.y, map.get_node("CollisionLayer").get_used_rect().end.y]
+		
+	for i in range(30):
+		var drawer = load("res://Maps/Lab/objects/Drawer.tscn").instance()
+		drawer.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[map_range_x[0]*16, map_range_x[1]*16], [map_range_y[0]*16, map_range_y[1]*16], 2, 2)
+		
+		$ObjectList.add_child(drawer)
+		
 
 func load_test_map():
 	var testroom = test_room.instance()
@@ -85,7 +100,7 @@ func _process(delta):
 		#enemy clear out of range
 		var in_range_of_player = false 
 		for j in $PlayerList.get_children():
-			if i.position.distance_to(j.position) < WINDOW_WIDTH*1.5:
+			if i.position.distance_to(j.position) < WINDOW_WIDTH*3:
 				in_range_of_player = true
 		if not in_range_of_player:
 			i.queue_free()
@@ -171,6 +186,8 @@ func generate_map():
 			elif i.passable[3] == 0:
 				load_room(i.pos, 'LRD', false, true)
 				
+	map.get_node("CollisionLayer").update_bitmask_region(map.get_node("CollisionLayer").get_used_rect().position,map.get_node("CollisionLayer").get_used_rect().end)
+				
 	for pos in Ladder_List:
 		load_ladder(pos)
 				
@@ -203,7 +220,6 @@ func load_room(offset, roomtype, flipv = false, fliph = false):
 		if flipv and fliph:
 			_offset = Vector2(map_offset.x + room_size.x - v.x - 1, map_offset.y + room_size.y - v.y - 1)
 		map.get_node("CollisionLayer").set_cellv(_offset, target_room.get_cellv(v))
-		map.get_node("CollisionLayer").update_bitmask_area(_offset)
 		
 	for v in ladder_room.get_used_cells():
 		var _offset = map_offset+v

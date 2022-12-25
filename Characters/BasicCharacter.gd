@@ -4,12 +4,19 @@ class_name BasicCharacter
 
 #health and armor
 var health_curr = 100
-var health_max = 100
-var armor = 50
-
+var base_health = 100
+var base_armor = 50
+var base_regen = 0.1
 #damage
-var damage_flat
+var base_damage
 var damage_floating
+
+var calculated_health
+var calculated_armor
+var calculated_regen
+var calculated_damage
+
+var EXP = 0
 
 #velocity
 var velocity = Vector2.ZERO
@@ -28,7 +35,6 @@ onready var animation_player = $AnimationPlayer
 var curr_anim = ""
 
 #id & friendly
-var id
 var friendly
 
 #random number generator
@@ -39,13 +45,18 @@ var enable
 
 #facing
 var facing_right
+var creator = ""
 
 func _ready():
 	#initialize
 	facing_right = true
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
-	health_curr = health_max
+	calculated_health = base_health
+	calculated_armor = base_armor
+	calculated_damage = base_damage
+	calculated_regen = base_regen
+	health_curr = calculated_health
 	enable = true
 	
 #call to update velocity and more state	
@@ -66,7 +77,7 @@ func update_animation():
 	pass
 
 #death handling
-func death_handling():
+func death_handling(target):
 	toggle_script_off()
 	animation_player.play('death')
 	yield(animation_player,'animation_finished')
@@ -84,19 +95,17 @@ func toggle_script_on():
 	set_physics_process(enable)
 	
 #take damage, call when a hitbox enter the hurtbox
-func take_damage(dmg):
+func take_damage(target):
 	
 	#take damage
-	dmg = 100*dmg/(100+armor)
+	var dmg = 100*target.damage/(100+calculated_armor)
 	health_curr -= dmg
 	
 	#adding floating text
 	var dmg_display = preload("res://Characters/Addons/DamageDisplay.tscn").instance()
-	dmg_display.get_node("LabelControl/Label").text = str(dmg)
-	self.add_child(dmg_display)
-	
-	#play hit animation
-	$AnimationPlayer.play("hit")
+	dmg_display.get_node("LabelControl/Label").text = str(int(dmg))
+	dmg_display.position = self.get_global_position()
+	get_parent().get_parent().add_child(dmg_display)
 	
 	if health_curr <= 0:
-		death_handling()
+		death_handling(target)

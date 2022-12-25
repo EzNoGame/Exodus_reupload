@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gunshot Sound Effect.mp3-835f7ffa281fb0ef7732972c56343627.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/Gunshot Sound Effect.mp3"
+dest_files=[ "res://.import/Gunshot Sound Effect.mp3-835f7ffa281fb0ef7732972c56343627.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

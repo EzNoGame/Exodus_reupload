@@ -9,5 +9,8 @@ onready var world = $Viewports/ViewportContainer1/Viewport1/MainGameScene
 func _ready():
 	if viewport1 != null:
 		viewport2.world_2d = viewport1.world_2d
+func _process(delta):
+	if camera1.target == null:
 		camera1.target = world.get_node("PlayerList/Player_1")
+	if camera2.target == null:
 		camera2.target = world.get_node("PlayerList/Player_2")

@@ -11,7 +11,7 @@ var direction = false
 var velocity = Vector2()
 var scored = false
 export var friendly := true
-export var damage := 10
+var damage
 
 func _ready():
 	var rng = RandomNumberGenerator.new()

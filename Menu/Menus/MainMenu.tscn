@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Menu/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/icons/new_styleboxflat.tres" type="StyleBox" id=2]
-[ext_resource path="res://Assets/font/DefaultFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Fonts/DefaultFont.tres" type="DynamicFont" id=3]
+
 
 [sub_resource type="StyleBoxEmpty" id=1]
 

@@ -38,7 +38,7 @@ custom_constants/separation = 50
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
 margin_right = 450.0
-margin_bottom = 25.0
+margin_bottom = 11.0
 rect_min_size = Vector2( 450, 0 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -47,9 +47,9 @@ custom_styles/bg = SubResource( 2 )
 step = 0.1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_left = 31.0
-margin_top = 75.0
-margin_right = 419.0
-margin_bottom = 100.0
+margin_left = 107.0
+margin_top = 61.0
+margin_right = 342.0
+margin_bottom = 72.0
 size_flags_horizontal = 4
 text = "Hint: this loading screen ain't doing anything."

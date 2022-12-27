@@ -22,4 +22,4 @@ func _process(delta):
 	if $VBoxContainer/ProgressBar.value >= $VBoxContainer/ProgressBar.max_value:
 		BgmPlayer.stream = bgm
 		BgmPlayer.play()
-		get_tree().change_scene("res://MainGame/%sP.tscn" %data["RoundData"]["NumOfPlayer"])
+		get_tree().change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["RoundData"]["NumOfPlayer"])

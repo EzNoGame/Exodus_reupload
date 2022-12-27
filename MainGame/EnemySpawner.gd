@@ -20,7 +20,7 @@ onready var collision_map = owner.get_node('Map/CollisionLayer')
 onready var player_list = owner.get_node('PlayerList')
 onready var enemy_list = owner.get_node('EnemyList')
 
-onready var dummy = preload("res://Characters/Enemies/Dummy/Dummy.tscn")
+onready var dummy = preload("res://MainGame/Characters/Enemies/Dummy/Dummy.tscn")
 
 func _ready():
 	spawn_level = 1
@@ -38,15 +38,17 @@ func _on_Timer_timeout():
 	update_player_pos()
 	
 	for i in range(spawn_level):
-		if enemy_list.get_child_count() >= 10:
+		if enemy_list.get_child_count() >= 1:
 			break
 		var temp = dummy.instance()
 		var target_player = rng.randi_range(1, len(player_pos_map))
-		var h_range = [player_pos_map[target_player].x+(SCREEN_WIDTH), player_pos_map[target_player].x-SCREEN_WIDTH]
-		var v_range = [player_pos_map[target_player].y+SCREEN_HEIGHT, player_pos_map[target_player].y-SCREEN_HEIGHT]
-		temp.position = Spawner.find_spawn_pos(collision_map,h_range,v_range,1,2)
-		temp.name = str(num)
-		enemy_list.add_child(temp)
+		var h_range = [player_pos_map[target_player].x-(SCREEN_WIDTH), player_pos_map[target_player].x+SCREEN_WIDTH]
+		var v_range = [player_pos_map[target_player].y-SCREEN_HEIGHT, player_pos_map[target_player].y+SCREEN_HEIGHT]
+		
+		if Spawner.find_spawn_pos(collision_map,h_range,v_range,1,2) != null:
+			temp.position = Spawner.find_spawn_pos(collision_map,h_range,v_range,1,2)
+			temp.name = str(num)
+			enemy_list.add_child(temp)
 			
 #this function is used to keep track of players position
 func update_player_pos():

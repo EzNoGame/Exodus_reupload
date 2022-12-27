@@ -39,6 +39,6 @@ func _on_4_Player_pressed():
 
 func _on_Return_pressed():
 	ButtonClickSfx.play()
-	get_tree().root.get_child(3).Swap = true
-	get_tree().root.get_child(3).UI_path = "res://Scenes/Menus/MainMenu.tscn"
+	get_tree().root.get_child(4).UI_path = "res://Menu/Menus/MainMenu.tscn"
+	get_tree().root.get_child(4).Swap = true
 	queue_free()

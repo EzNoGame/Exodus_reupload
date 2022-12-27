@@ -153,7 +153,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Exodus"
-run/main_scene="res://Menu/Menus/MenuController.tscn"
+run/main_scene="res://Menu/Intro.tscn"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
@@ -188,6 +188,7 @@ font=false
 display=false
 boot=false
 vsy=false
+start=false
 
 [gui]
 

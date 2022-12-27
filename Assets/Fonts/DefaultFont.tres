@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Assets/Fonts/PoorStory-Regular.ttf" type="DynamicFontData" id=1]
 
-
 [resource]
 size = 24
 font_data = ExtResource( 1 )

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu/Menus/CharacterPicking.gd" type="Script" id=1]
 [ext_resource path="res://Assets/icons/checkmark.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Menus/MainMenu.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/icons/pumpkin.png" type="Texture" id=4]
 [ext_resource path="res://Menu/Backgound/MainMenuBackgound.png" type="Texture" id=5]
 
@@ -21,30 +22,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 
-[node name="CharacterList" type="VBoxContainer" parent="."]
-anchor_left = 0.5
+[node name="CharacterList" type="GridContainer" parent="."]
+anchor_left = 0.341
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.341
 anchor_bottom = 0.5
-margin_left = -322.5
+margin_left = -159.24
 margin_top = -125.0
-margin_right = 322.5
-margin_bottom = 125.0
-custom_constants/separation = 50
+margin_right = -1.24002
+margin_bottom = 130.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterList"]
-margin_left = 102.0
-margin_right = 542.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 360, 100 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/separation = 30
-
-[node name="PumpKing" type="TextureButton" parent="CharacterList/HBoxContainer" groups=["characters"]]
-margin_top = 18.0
+[node name="PumpKing" type="TextureButton" parent="CharacterList" groups=["characters"]]
 margin_right = 64.0
-margin_bottom = 82.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -53,108 +46,41 @@ texture_hover = ExtResource( 4 )
 texture_focused = ExtResource( 2 )
 expand = true
 
-[node name="CyberCowboy" type="TextureButton" parent="CharacterList/HBoxContainer" groups=["characters"]]
+[node name="CyberCowboy" type="TextureButton" parent="CharacterList" groups=["characters"]]
 margin_left = 94.0
-margin_top = 18.0
 margin_right = 158.0
-margin_bottom = 82.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_focused = ExtResource( 2 )
 expand = true
 
-[node name="BusterGhost" type="TextureButton" parent="CharacterList/HBoxContainer" groups=["characters"]]
-margin_left = 188.0
-margin_top = 18.0
-margin_right = 252.0
-margin_bottom = 82.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_focused = ExtResource( 2 )
-expand = true
-
-[node name="Frank" type="TextureButton" parent="CharacterList/HBoxContainer" groups=["characters"]]
-margin_left = 282.0
-margin_top = 18.0
-margin_right = 346.0
-margin_bottom = 82.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_focused = ExtResource( 2 )
-expand = true
-
-[node name="ScaredByCrow" type="TextureButton" parent="CharacterList/HBoxContainer" groups=["characters"]]
-margin_left = 376.0
-margin_top = 18.0
-margin_right = 440.0
-margin_bottom = 82.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_focused = ExtResource( 2 )
-expand = true
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CharacterList"]
-margin_left = 102.0
-margin_top = 150.0
-margin_right = 542.0
-margin_bottom = 250.0
-rect_min_size = Vector2( 360, 100 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/separation = 30
-
-[node name="ManWithAxe" type="TextureButton" parent="CharacterList/HBoxContainer2" groups=["characters"]]
-margin_top = 18.0
+[node name="BusterGhost" type="TextureButton" parent="CharacterList" groups=["characters"]]
+margin_top = 94.0
 margin_right = 64.0
-margin_bottom = 82.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_focused = ExtResource( 2 )
 expand = true
 
-[node name="BoneBag" type="TextureButton" parent="CharacterList/HBoxContainer2" groups=["characters"]]
+[node name="Frank" type="TextureButton" parent="CharacterList" groups=["characters"]]
 margin_left = 94.0
-margin_top = 18.0
+margin_top = 94.0
 margin_right = 158.0
-margin_bottom = 82.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_focused = ExtResource( 2 )
 expand = true
 
-[node name="NormalTree" type="TextureButton" parent="CharacterList/HBoxContainer2" groups=["characters"]]
-margin_left = 188.0
-margin_top = 18.0
-margin_right = 252.0
-margin_bottom = 82.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_focused = ExtResource( 2 )
-expand = true
-
-[node name="Clown" type="TextureButton" parent="CharacterList/HBoxContainer2" groups=["characters"]]
-margin_left = 282.0
-margin_top = 18.0
-margin_right = 346.0
-margin_bottom = 82.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_focused = ExtResource( 2 )
-expand = true
-
-[node name="Random" type="TextureButton" parent="CharacterList/HBoxContainer2" groups=["characters"]]
-margin_left = 376.0
-margin_top = 18.0
-margin_right = 440.0
-margin_bottom = 82.0
+[node name="ScaredByCrow" type="TextureButton" parent="CharacterList" groups=["characters"]]
+margin_top = 188.0
+margin_right = 64.0
+margin_bottom = 252.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -172,11 +98,12 @@ align = 1
 script = SubResource( 1 )
 
 [node name="Return" type="Button" parent="."]
-margin_left = 569.0
-margin_top = 329.0
-margin_right = 639.0
-margin_bottom = 360.0
+margin_left = 558.0
+margin_top = 316.0
+margin_right = 628.0
+margin_bottom = 347.0
+theme = ExtResource( 3 )
 text = "Return"
 
-[connection signal="pressed" from="CharacterList/HBoxContainer/PumpKing" to="." method="_on_PumpKing_pressed"]
+[connection signal="pressed" from="CharacterList/PumpKing" to="." method="_on_PumpKing_pressed"]
 [connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]

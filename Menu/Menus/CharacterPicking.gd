@@ -6,7 +6,7 @@ var num_of_player : int
 var FilePath : String = "res://GameData/Temp.json"
 
 func _ready():
-	$CharacterList/HBoxContainer/PumpKing.grab_focus()
+	$CharacterList/PumpKing.grab_focus()
 	
 	var file = File.new()
 	if file.open(FilePath, File.READ) == OK:
@@ -33,7 +33,7 @@ func _some_button_pressed(button):
 		savefile.open(FilePath, File.WRITE)
 		savefile.store_line(to_json(data))
 		savefile.close()
-		get_tree().change_scene("res://Menu/Menus/FakeLoadingScreen.tscn")
+		Transition.change_scene("res://Menu/Menus/FakeLoadingScreen.tscn")
 		
 	pass # Replace with function body.
 

@@ -17,9 +17,7 @@ func _ready():
 		print("json file invalid")
 
 func _process(delta):
-	if rng.randf_range(1,10) > 7:
-		get_node("VBoxContainer/ProgressBar").value += rng.randf_range(1,5)
-	if $VBoxContainer/ProgressBar.value >= $VBoxContainer/ProgressBar.max_value:
+		yield(get_tree().create_timer(3.0), "timeout")
 		BgmPlayer.stream = bgm
 		BgmPlayer.play()
 		get_tree().change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["RoundData"]["NumOfPlayer"])

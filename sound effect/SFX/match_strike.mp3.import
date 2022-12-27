@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/match_strike.mp3-31c383a0f60086cd84d4305a02572514.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/match_strike.mp3"
+dest_files=[ "res://.import/match_strike.mp3-31c383a0f60086cd84d4305a02572514.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

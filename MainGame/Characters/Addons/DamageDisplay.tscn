@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MainGame/Characters/Addons/DamageDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Assets/particles/light/light.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Menu/Menus/MainMenu.tres" type="Theme" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PopUp"
@@ -71,6 +73,10 @@ tracks/1/keys = {
 "values": [ Vector2( -16, -16 ) ]
 }
 
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 3 )
+
 [node name="DmgDisplay" type="Node2D"]
 z_index = 1
 script = ExtResource( 1 )
@@ -97,6 +103,8 @@ margin_left = -8.0
 margin_top = -12.5
 margin_right = 8.0
 margin_bottom = 12.5
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "11"
 
 [node name="Light2D" type="Light2D" parent="LabelControl"]

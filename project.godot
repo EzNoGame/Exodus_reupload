@@ -39,61 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://MainGame/Cell.gd"
 }, {
-"base": "Reference",
-"class": "DTS",
-"language": "GDScript",
-"path": "res://addons/dialogic/Localization/translation_service.gd"
-}, {
-"base": "Node",
-"class": "Dialogic",
-"language": "GDScript",
-"path": "res://addons/dialogic/Other/DialogicClass.gd"
-}, {
-"base": "Reference",
-"class": "DialogicAnimaPropertiesHelper",
-"language": "GDScript",
-"path": "res://addons/dialogic/Nodes/Anima/DialogicAnimaPropertiesHelper.gd"
-}, {
-"base": "Node",
-"class": "DialogicAnimaResources",
-"language": "GDScript",
-"path": "res://addons/dialogic/Nodes/Anima/DialogicAnimaResources.gd"
-}, {
-"base": "Control",
-"class": "DialogicBackgroundMusic",
-"language": "GDScript",
-"path": "res://addons/dialogic/Nodes/BackgroundMusic.gd"
-}, {
-"base": "Node",
-"class": "DialogicCustomEvents",
-"language": "GDScript",
-"path": "res://addons/dialogic/Nodes/DialogicCustomEvents.gd"
-}, {
-"base": "Node",
-"class": "DialogicDefinitionsUtil",
-"language": "GDScript",
-"path": "res://addons/dialogic/Other/DialogicDefinitionsUtil.gd"
-}, {
-"base": "Node",
-"class": "DialogicParser",
-"language": "GDScript",
-"path": "res://addons/dialogic/Parser/DialogicParser.gd"
-}, {
-"base": "Reference",
-"class": "DialogicResources",
-"language": "GDScript",
-"path": "res://addons/dialogic/Other/DialogicResources.gd"
-}, {
-"base": "Reference",
-"class": "DialogicUtil",
-"language": "GDScript",
-"path": "res://addons/dialogic/Other/DialogicUtil.gd"
-}, {
-"base": "PanelContainer",
-"class": "HistoryRow",
-"language": "GDScript",
-"path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
-}, {
 "base": "Area2D",
 "class": "Hitbox",
 "language": "GDScript",
@@ -131,17 +76,6 @@ _global_script_class_icons={
 "Bullet": "",
 "BulletHitBox": "",
 "Cell": "",
-"DTS": "",
-"Dialogic": "",
-"DialogicAnimaPropertiesHelper": "",
-"DialogicAnimaResources": "",
-"DialogicBackgroundMusic": "",
-"DialogicCustomEvents": "",
-"DialogicDefinitionsUtil": "",
-"DialogicParser": "",
-"DialogicResources": "",
-"DialogicUtil": "",
-"HistoryRow": "",
 "Hitbox": "",
 "HurtBox": "",
 "LadderBox": "",
@@ -180,7 +114,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 

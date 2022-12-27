@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/elevator bell ring SoundEffectsFactory.mp3-5e018a330514d9e9a2c61dd05425062a.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/elevator bell ring SoundEffectsFactory.mp3"
+dest_files=[ "res://.import/elevator bell ring SoundEffectsFactory.mp3-5e018a330514d9e9a2c61dd05425062a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

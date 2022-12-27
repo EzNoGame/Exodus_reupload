@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/elevator-goes-up-7166.mp3-83154db7031205a4b74a8f765e3459b9.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/elevator-goes-up-7166.mp3"
+dest_files=[ "res://.import/elevator-goes-up-7166.mp3-83154db7031205a4b74a8f765e3459b9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

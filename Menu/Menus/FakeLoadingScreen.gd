@@ -15,9 +15,7 @@ func _ready():
 		data = json.result
 	else:
 		print("json file invalid")
-
-func _process(delta):
-		yield(get_tree().create_timer(3.0), "timeout")
-		BgmPlayer.stream = bgm
-		BgmPlayer.play()
-		get_tree().change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["RoundData"]["NumOfPlayer"])
+	yield(get_tree().create_timer(3.0), "timeout")
+	BgmPlayer.stream = bgm
+	BgmPlayer.play()
+	Transition.change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["RoundData"]["NumOfPlayer"])

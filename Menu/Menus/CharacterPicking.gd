@@ -29,6 +29,7 @@ func _some_button_pressed(button):
 	curr_player_id += 1
 	
 	if curr_player_id > data["RoundData"]["NumOfPlayer"]:
+		set_process(false)
 		var savefile = File.new()
 		savefile.open(FilePath, File.WRITE)
 		savefile.store_line(to_json(data))

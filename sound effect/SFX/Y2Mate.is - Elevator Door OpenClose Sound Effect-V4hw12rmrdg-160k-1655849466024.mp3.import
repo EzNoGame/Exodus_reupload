@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Y2Mate.is - Elevator Door OpenClose Sound Effect-V4hw12rmrdg-160k-1655849466024.mp3-2d9ebf0f76a179825f1dd91b157d0ceb.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/Y2Mate.is - Elevator Door OpenClose Sound Effect-V4hw12rmrdg-160k-1655849466024.mp3"
+dest_files=[ "res://.import/Y2Mate.is - Elevator Door OpenClose Sound Effect-V4hw12rmrdg-160k-1655849466024.mp3-2d9ebf0f76a179825f1dd91b157d0ceb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/Menus/FakeLoadingScreen.gd" type="Script" id=1]
 [ext_resource path="res://Menu/Backgound/elavator_shaft.png" type="Texture" id=2]
 [ext_resource path="res://Menu/Menus/Vertical_Roll.gd" type="Script" id=3]
 [ext_resource path="res://Menu/Menus/elavator.png" type="Texture" id=4]
+[ext_resource path="res://sound effect/SFX/elevator-goes-up-7166.mp3" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -72,3 +73,8 @@ texture = ExtResource( 2 )
 position = Vector2( 320, 120 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 0.8
+autoplay = true

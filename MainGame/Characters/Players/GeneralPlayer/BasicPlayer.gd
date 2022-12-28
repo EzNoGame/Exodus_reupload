@@ -43,6 +43,8 @@ var id
 var EXP_to_next_level = 10
 var level = 0
 
+var animation = "idle"
+
 func _ready():
 
 	self.h_acc = 90
@@ -165,16 +167,18 @@ func update_animation():
 		curr_facing = facing_right
 		
 	if abs(velocity.x) > 50 and is_on_floor():
-		state_machine.travel('Walk')
+		animation = 'Walk'
 		
 	elif not is_on_floor() and velocity.y > 0:
-		state_machine.travel('Fall_Down')
+		animation = 'Fall_Down'
 	
 	elif not is_on_floor() and velocity.y < 0:
-		state_machine.travel('Jump_Up')
+		animation = 'Jump_Up'
 	
 	elif velocity.x < 50 and is_on_floor():
-		state_machine.travel('Idle')
+		animation = 'Idle'
+	
+	state_machine.travel(animation)
 
 func ult():
 	pass

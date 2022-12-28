@@ -8,7 +8,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 
-func open(id):
+func interact(id):
 	if not opened:
 		opened = true
 		var i = rng.randi_range(0,2)

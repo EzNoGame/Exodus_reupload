@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://MainGame/Characters/Addons/SearchBox.gd"
 }, {
+"base": "Area2D",
+"class": "interact_box",
+"language": "GDScript",
+"path": "res://MainGame/Maps/Lab/objects/InteractBox.gd"
+}, {
 "base": "Node2D",
 "class": "spawner",
 "language": "GDScript",
@@ -81,6 +86,7 @@ _global_script_class_icons={
 "LadderBox": "",
 "Player": "",
 "SearchBox": "",
+"interact_box": "",
 "spawner": ""
 }
 

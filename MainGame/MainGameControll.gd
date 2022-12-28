@@ -58,11 +58,17 @@ func _ready():
 	map_range_x = [map.get_node("CollisionLayer").get_used_rect().position.x, map.get_node("CollisionLayer").get_used_rect().end.x]
 	map_range_y = [map.get_node("CollisionLayer").get_used_rect().position.y, map.get_node("CollisionLayer").get_used_rect().end.y]
 		
-	for i in range(30):
+	for i in range(10):
 		var drawer = load("res://MainGame/Maps/Lab/objects/Drawer.tscn").instance()
 		drawer.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[map_range_x[0]*16, map_range_x[1]*16], [map_range_y[0]*16, map_range_y[1]*16], 2, 2)
 		
 		$ObjectList.add_child(drawer)
+	
+	for i in range(3):
+		var collector = load("res://MainGame/Maps/Lab/objects/Collector.tscn").instance()
+		collector.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[map_range_x[0]*16, map_range_x[1]*16], [map_range_y[0]*16, map_range_y[1]*16], 6, 6)
+		
+		$ObjectList.add_child(collector)
 		
 
 func load_test_map():

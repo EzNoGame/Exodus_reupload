@@ -28,7 +28,7 @@ var able_to_attack = false
 
 func _ready():
 	h_acc = 10
-	h_cap = 75
+	h_cap = 20
 	target = []
 	attack_target = []
 	friendly = false
@@ -55,7 +55,7 @@ func update_velocity(delta):
 		
 		scout:
 			
-			h_acc = 20
+			h_cap = 20
 			
 			if len(target) > 0:
 				state = chase

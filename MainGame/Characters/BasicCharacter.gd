@@ -50,6 +50,7 @@ var facing_right
 var creator = ""
 
 var state_machine
+var animation
 
 func _ready():
 	#initialize

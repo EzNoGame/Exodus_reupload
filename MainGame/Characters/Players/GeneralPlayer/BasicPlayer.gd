@@ -43,8 +43,6 @@ var id
 var EXP_to_next_level = 10
 var level = 0
 
-var animation = "idle"
-
 func _ready():
 
 	self.h_acc = 90
@@ -177,8 +175,9 @@ func update_animation():
 	
 	elif velocity.x < 50 and is_on_floor():
 		animation = 'Idle'
-	
-	state_machine.travel(animation)
+		
+	if state_machine.get_current_node() != animation:
+		state_machine.travel(animation)
 
 func ult():
 	pass

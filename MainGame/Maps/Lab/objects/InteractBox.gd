@@ -7,6 +7,8 @@ var id = []
 func _ready():
 	collision_mask = 4
 	collision_layer = 0
+	connect("body_entered", self, '_on_Area2D_body_entered')
+	connect("body_exited", self, '_on_Area2D_body_exited')
 
 func _on_Area2D_body_entered(body):
 	if body == null:

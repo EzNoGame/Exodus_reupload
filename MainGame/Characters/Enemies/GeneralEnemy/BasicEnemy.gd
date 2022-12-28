@@ -16,8 +16,6 @@ var attack_target
 
 var direction = 1
 var prev_direction = 1
-var horizontal_acc = 10
-var horizontal_cap = 50
 
 var attack_CD = 20
 var attack_CD_curr = 0
@@ -29,6 +27,8 @@ var damage
 var able_to_attack = false
 
 func _ready():
+	h_acc = 10
+	h_cap = 75
 	target = []
 	attack_target = []
 	friendly = false
@@ -54,6 +54,9 @@ func update_velocity(delta):
 	match state:
 		
 		scout:
+			
+			h_acc = 20
+			
 			if len(target) > 0:
 				state = chase
 				continue
@@ -66,11 +69,14 @@ func update_velocity(delta):
 			if not $Ground_Check.is_colliding():
 				direction = -direction
 				
-			velocity.x = direction*(abs(velocity.x)+horizontal_acc)
-			if abs(velocity.x) > horizontal_cap :
-				velocity.x = horizontal_cap * direction
+			velocity.x = direction*(abs(velocity.x)+h_acc)
+			if abs(velocity.x) > h_cap :
+				velocity.x = h_cap * direction
 				
 		chase:
+			
+			h_cap = 150
+			
 			if len(target) == 0:
 				state = scout
 				continue
@@ -86,9 +92,9 @@ func update_velocity(delta):
 			else:
 				direction = -1
 			
-			velocity.x = direction*(abs(velocity.x)+horizontal_acc)
-			if abs(velocity.x) > horizontal_cap :
-				velocity.x = horizontal_cap * direction
+			velocity.x = direction*(abs(velocity.x)+h_acc)
+			if abs(velocity.x) > h_cap :
+				velocity.x = h_cap * direction
 		
 		attack:
 			velocity = Vector2(0,velocity.y)
@@ -101,6 +107,9 @@ func update_animation():
 	if direction != prev_direction and direction != 0:
 		prev_direction = direction
 		self.scale.x = -self.scale.x
+		
+	if state_machine.get_current_node() != animation:
+		state_machine.travel(animation)
 	
 func attack():
 	if attack_CD_curr == attack_CD:

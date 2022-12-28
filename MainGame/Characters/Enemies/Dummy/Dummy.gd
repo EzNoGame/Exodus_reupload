@@ -10,22 +10,24 @@ func _ready():
 	base_armor = 20
 	base_damage = 10
 	h_cap = 80
+	collision_mask = 9
+	collision_layer = 0
 	._ready()
 
 func update_animation():
 	match state:
 		attack:
 			if able_to_attack:
+				animation = 'attack'
 				if state_machine.get_current_node() != 'walk_transform':
-					state_machine.travel('walk_transform')
-				state_machine.travel('attack')
+					animation = 'walk_transform'
 				able_to_attack = false
 			else:
-				state_machine.travel('walk_transform')
+				animation = 'walk_transform'
 		chase:
-			state_machine.travel('walk_transform')
+			animation = 'walk_transform'
 			transformed = true
 		scout:
-			state_machine.travel('walk')
+			animation = 'walk'
 		
 	.update_animation()	

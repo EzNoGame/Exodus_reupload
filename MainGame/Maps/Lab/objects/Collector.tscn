@@ -59,3 +59,10 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_box"]
 shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0.5, 6.49999 )
+scale = Vector2( 0.70625, 3.03125 )
+texture = ExtResource( 1 )
+color = Color( 0, 0.0156863, 1, 1 )
+energy = 0.7

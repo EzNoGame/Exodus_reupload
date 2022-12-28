@@ -36,5 +36,6 @@ color = Color( 1, 0.701961, 0, 1 )
 show_behind_parent = true
 width = 8.0
 width_curve = SubResource( 2 )
+default_color = Color( 0.4, 0.501961, 1, 1 )
 script = ExtResource( 5 )
 length = 10

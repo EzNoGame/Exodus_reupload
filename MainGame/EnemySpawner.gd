@@ -38,7 +38,7 @@ func _on_Timer_timeout():
 	update_player_pos()
 	
 	for i in range(spawn_level):
-		if enemy_list.get_child_count() >= 1:
+		if enemy_list.get_child_count() >= 10:
 			break
 		var temp = dummy.instance()
 		var target_player = rng.randi_range(1, len(player_pos_map))

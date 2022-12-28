@@ -207,7 +207,7 @@ func _process(delta):
 
 func take_damage(dmg):
 	.take_damage(dmg)
-	state_machine.travel('Hurt')
+	state_machine.start('Hurt')
 	
 
 func regen():
@@ -233,5 +233,3 @@ func level_up():
 	var keys = chip_list.keys()
 	var key = keys[i]
 	chip_list[key]+=1
-
-	

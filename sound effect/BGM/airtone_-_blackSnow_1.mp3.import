@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/airtone_-_blackSnow_1.mp3-13f6044f29c11fd0e2e76e4c3e48ff9a.mp3str"
+
+[deps]
+
+source_file="res://sound effect/BGM/airtone_-_blackSnow_1.mp3"
+dest_files=[ "res://.import/airtone_-_blackSnow_1.mp3-13f6044f29c11fd0e2e76e4c3e48ff9a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

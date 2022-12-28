@@ -17,9 +17,9 @@ var attack_target
 var direction = 1
 var prev_direction = 1
 var horizontal_acc = 10
-var horizontal_cap = 40
+var horizontal_cap = 50
 
-var attack_CD = 60
+var attack_CD = 20
 var attack_CD_curr = 0
 
 var _timer
@@ -116,7 +116,6 @@ func death_handling():
 		exp_target.EXP += EXP
 		EXP -= EXP
 	state_machine.travel('death')
-	print(state_machine.get_current_node())
 	
 func take_damage(target):
 	exp_target = target.creator

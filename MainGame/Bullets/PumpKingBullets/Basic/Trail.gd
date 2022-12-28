@@ -8,9 +8,11 @@ func _ready():
 	set_as_toplevel(true)
 
 func _process(delta):
-	
+		
 	point = get_parent().global_position
 	
 	add_point(point)
 	while get_point_count() > length:
 		remove_point(0)
+
+	modulate = Color(1,1,1,float(owner.life_span)/float(owner.life_span_fix))

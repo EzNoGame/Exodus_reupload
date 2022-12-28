@@ -8,7 +8,8 @@ func _ready():
 	damage = calculated_damage
 	base_health = 30
 	base_armor = 20
-	base_damage = 0
+	base_damage = 10
+	h_cap = 80
 	._ready()
 
 func update_animation():
@@ -22,7 +23,7 @@ func update_animation():
 			else:
 				state_machine.travel('walk_transform')
 		chase:
-			state_machine.travel('transform')
+			state_machine.travel('walk_transform')
 			transformed = true
 		scout:
 			state_machine.travel('walk')

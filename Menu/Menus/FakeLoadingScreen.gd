@@ -1,7 +1,7 @@
 extends Control
 
 var rng = RandomNumberGenerator.new()
-var bgm = preload("res://sound effect/BGM/lab.mp3")
+var bgm = preload("res://sound effect/BGM/airtone_-_blackSnow_1.mp3")
 var FilePath : String = "res://GameData/Temp.json"
 var data = {}
 

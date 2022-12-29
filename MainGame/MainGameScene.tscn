@@ -2,7 +2,7 @@
 
 [ext_resource path="res://MainGame/EnemySpawner.gd" type="Script" id=1]
 [ext_resource path="res://MainGame/MainGameControll.gd" type="Script" id=2]
-[ext_resource path="res://MainGame/Maps/Lab/objects/Ladder.tres" type="TileSet" id=3]
+[ext_resource path="res://MainGame/Objects/Ladder.tres" type="TileSet" id=3]
 [ext_resource path="res://MainGame/Maps/Lab/Lab.tres" type="TileSet" id=5]
 
 [node name="MainGameScene" type="Control"]
@@ -19,6 +19,7 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 
 [node name="Ladder" type="TileMap" parent="Map"]
+z_index = -2
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )

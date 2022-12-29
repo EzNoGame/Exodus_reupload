@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://MainGame/Characters/Addons/HitBox.gd" type="Script" id=1]
 [ext_resource path="res://MainGame/Characters/Addons/AttackBox.gd" type="Script" id=2]
@@ -351,9 +351,6 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=54]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=55]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=58]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=60]
@@ -377,7 +374,7 @@ states/walk/node = SubResource( 29 )
 states/walk/position = Vector2( 655, 203 )
 states/walk_transform/node = SubResource( 47 )
 states/walk_transform/position = Vector2( 655, 6 )
-transitions = [ "walk", "transform", SubResource( 32 ), "spawn", "walk", SubResource( 38 ), "Transform_inv", "walk", SubResource( 46 ), "transform", "walk_transform", SubResource( 48 ), "walk_transform", "attack", SubResource( 50 ), "attack", "walk_transform", SubResource( 51 ), "Hurt", "walk_transform", SubResource( 53 ), "Hurt", "walk", SubResource( 54 ), "Hurt", "attack", SubResource( 55 ), "walk_transform", "Transform_inv", SubResource( 58 ), "walk_transform", "death", SubResource( 60 ), "walk", "death", SubResource( 61 ) ]
+transitions = [ "walk", "transform", SubResource( 32 ), "spawn", "walk", SubResource( 38 ), "Transform_inv", "walk", SubResource( 46 ), "transform", "walk_transform", SubResource( 48 ), "walk_transform", "attack", SubResource( 50 ), "attack", "walk_transform", SubResource( 51 ), "Hurt", "walk_transform", SubResource( 53 ), "Hurt", "walk", SubResource( 54 ), "walk_transform", "Transform_inv", SubResource( 58 ), "walk_transform", "death", SubResource( 60 ), "walk", "death", SubResource( 61 ) ]
 start_node = "spawn"
 graph_offset = Vector2( 48, -2.90799 )
 

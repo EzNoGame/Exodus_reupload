@@ -1,0 +1,27 @@
+{
+  "Collector": {
+    "Width": 12,
+    "Height": 12,
+    "Interactable": true
+  },
+  "Drawer": {
+    "Width": 4,
+    "Height": 4,
+    "Interactable": true
+  },
+  "TrapDoor": {
+    "Width": 1,
+    "Height": 1,
+    "Interactable": false
+  },
+  "PlayerSpawner": {
+    "Width": 8,
+    "Height": 8,
+    "Interactable": false
+  },
+  "NextLevel": {
+    "Width": 16,
+    "Height": 8,
+    "Interactable": true
+  }
+}

@@ -2,7 +2,7 @@ extends Control
 
 var rng = RandomNumberGenerator.new()
 var bgm = preload("res://sound effect/BGM/airtone_-_blackSnow_1.mp3")
-var FilePath : String = "res://GameData/Temp.json"
+var FilePath : String = "res://Data/Run.json"
 var data = {}
 
 func _ready():
@@ -18,4 +18,4 @@ func _ready():
 	yield(get_tree().create_timer(3.0), "timeout")
 	BgmPlayer.stream = bgm
 	BgmPlayer.play()
-	Transition.change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["RoundData"]["NumOfPlayer"])
+	Transition.change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["NumOfPlayer"])

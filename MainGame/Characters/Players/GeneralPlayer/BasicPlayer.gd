@@ -10,9 +10,9 @@ var jump_frame_num = 10
 
 var curr_facing = true
 
-var base_CD = 5
+var base_CD
 var calculated_CD
-var curr_shoot_CD = 5
+var curr_shoot_CD = 0
 var need_to_add_bullet = false
 var need_to_burst = false
 var basic_att_bullet
@@ -30,32 +30,31 @@ var dmg_offset = 0.1
 
 var attack_range = ''
 
-var chip_list = {
-	num_red_chip = 0,
-	num_green_chip = 0,
-	num_blue_chip = 0
-}
-
 var _timer
 
 var id
 
-var EXP_to_next_level = 10
-var level = 0
+var EXP_to_next_level
+
+var PlayerData = {
+	'Addons' : {},
+	'EXP' : 0,
+	'Level' : 0,
+	'Num_of_Green' : 0,
+	'Num_of_Red' : 0,
+	'Num_of_Blue' : 0,
+	'Health' : 100
+}
 
 func _ready():
-
+	self.EXP_to_next_level = pow(PlayerData['Level'],2)*3 + 25
 	self.h_acc = 90
 	self.h_cap = 260
 	self.g_acc = 40
 	self.g_cap = 550
 	self.j_acc = 100
-	self.base_health = 100
-	self.base_armor = 0
 	self.friendly = true
-	self.base_damage = 10
 	self.creator = self
-	self.EXP = 0
 	calculated_CD = base_CD
 	_timer = Timer.new()
 	self.add_child(_timer)
@@ -218,11 +217,11 @@ func regen():
 		health_curr += calculated_regen
 	
 func _process_stats():
-	calculated_health = base_health*(1+0.1*chip_list['num_green_chip'])
-	calculated_regen = base_regen*(1+0.3*chip_list['num_green_chip'])
-	calculated_damage = base_damage*(1+0.1*chip_list['num_red_chip'])
-	calculated_armor = chip_list['num_red_chip']*1.5
-	calculated_CD = base_CD * (1*pow(0.98,chip_list['num_blue_chip']))
+	calculated_health = base_health*(1+0.1*PlayerData['Num_of_Green'])
+	calculated_regen = base_regen*(1+0.3*PlayerData['Num_of_Green'])
+	calculated_damage = base_damage*(1+0.1*PlayerData['Num_of_Red'])
+	calculated_armor = PlayerData['Num_of_Red']*1.5
+	calculated_CD = base_CD * (1*pow(0.98,PlayerData['Num_of_Blue']))
 	#ult cd with data
 
 func _on_Timer_timeout():
@@ -230,9 +229,9 @@ func _on_Timer_timeout():
 	regen()
 
 func level_up():
-	level += 1
-	EXP_to_next_level = pow(level,2)*3 + 25
+	PlayerData['Level'] += 1
+	EXP_to_next_level = pow(PlayerData['Level'],2)*3 + 25
 	var i = rng.randi_range(0,2)
-	var keys = chip_list.keys()
+	var keys = ['Red', 'Blue', 'Green']
 	var key = keys[i]
-	chip_list[key]+=1
+	PlayerData['Num_of_%s' %key]

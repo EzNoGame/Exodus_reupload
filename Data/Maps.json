@@ -1,0 +1,15 @@
+{"Lab":{
+   "Number_of_Rooms_Min": 25,
+   "Number_of_Rooms_Max": 50,
+   "Map_Type": 0,
+   "Number_of_Objects": {
+    "Collector": 1, 
+    "Drawer": 15, 
+    "NextLevel": 10
+  }},
+
+  "Test_Room":{
+    "Map_Type" : 1,
+    "Number_of_Objects":{}
+  }
+  }

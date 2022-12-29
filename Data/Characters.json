@@ -1,0 +1,9 @@
+{
+  "PumpKing": {
+    "Health": 100,
+    "Armor": 5,
+    "AttackSpeed": 0.5,
+    "Damage": 9,
+    "Regen": 0.1
+  }
+}

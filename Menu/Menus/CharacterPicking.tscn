@@ -105,5 +105,4 @@ margin_bottom = 347.0
 theme = ExtResource( 3 )
 text = "Return"
 
-[connection signal="pressed" from="CharacterList/PumpKing" to="." method="_on_PumpKing_pressed"]
 [connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]

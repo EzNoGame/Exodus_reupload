@@ -1,22 +1,20 @@
 extends Control
 
 var data
-var filepath = "res://GameData/Temp.json"
+var filepath = "res://Data/Run.json"
 
 func _ready():
 	$VBoxContainer/SinglePlayer.grab_focus()
 
 func _on_SinglePlayer_pressed():
 	data = {
-		"RoundData" : {
 			"NumOfPlayer" : 1,
-			"MapName" : "",
+			"MapName" : "Lab",
 			"PlayersData":{
-				"Player1" : "PumpKing"
+				"Player1" : {}
 			},
 			"Score":{}
 		} 
-	}
 	var file = File.new()
 	file.open(filepath,File.WRITE)
 	file.store_line(to_json(data))
@@ -26,16 +24,14 @@ func _on_SinglePlayer_pressed():
 	
 func _on_MultiPlayer_pressed():
 	data = {
-		"RoundData" : {
 			"NumOfPlayer" : "",
 			"MapName" : "",
 			"PlayersData":{
-				"Player1" : "PumpKing",
-				"Player2" : "PumpKing"
+				"Player1" : {},
+				"Player2" : {}
 			},
 			"Score":{}
 		} 
-	}
 	var file = File.new()
 	file.open(filepath,File.WRITE)
 	file.store_line(to_json(data))

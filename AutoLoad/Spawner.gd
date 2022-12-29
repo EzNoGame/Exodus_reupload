@@ -35,14 +35,24 @@ func find_spawn_pos(collision_layer,w_range,h_range,width,height):
 			continue
 		return collision_layer.map_to_world(used_cell_list[i] + Vector2((width/2), -(height/2)))
 		
-	return null
+	return Vector2(0,0)
 
 func check_avaliable(collision_layer, width, height, pos):
-	for j in range (width):
-			if collision_layer.get_cellv(pos + Vector2(j,0)) == -1:
-				return false
-	for j in range (width):
-		for k in range (1, height):
-			if collision_layer.get_cellv(pos+ Vector2(j, -k)) != -1:
-				return false
-	return true
+	
+	var on_roof = true
+	for j in range(1, 30):
+		if collision_layer.get_cellv(pos + Vector2(0,-j)) != -1:
+			on_roof = false
+	
+	if not on_roof:
+		for j in range (width):
+				if collision_layer.get_cellv(pos + Vector2(j,0)) == -1:
+					return false
+					
+		for j in range (width):
+			for k in range (1, height):
+				if collision_layer.get_cellv(pos+ Vector2(j, -k)) != -1:
+					return false
+		return true
+		
+	return false

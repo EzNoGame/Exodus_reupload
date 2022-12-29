@@ -3,9 +3,9 @@ extends KinematicBody2D
 class_name BasicCharacter
 
 #health and armor
-var health_curr = 100
-var base_health = 100
-var base_armor = 50
+var health_curr
+var base_health
+var base_armor
 var base_regen = 0.1
 #damage
 var base_damage
@@ -61,7 +61,6 @@ func _ready():
 	calculated_armor = base_armor
 	calculated_damage = base_damage
 	calculated_regen = base_regen
-	health_curr = calculated_health
 	enable = true
 	state_machine = $AnimationTree.get("parameters/playback")
 	

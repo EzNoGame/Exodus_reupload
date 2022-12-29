@@ -1,7 +1,7 @@
 extends Control
 
 var NumOfPlayer = 0
-var FilePath : String = "res://GameData/Temp.json"
+var FilePath : String = "res://Data/Run.json"
 var data
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -4,14 +4,16 @@ var transformed = false
 
 func _ready():
 	EXP = 5
-	calculated_damage = base_damage
-	damage = calculated_damage
 	base_health = 30
 	base_armor = 20
 	base_damage = 10
+	base_regen = 0
+	calculated_damage = base_damage
+	damage = calculated_damage
 	collision_mask = 9
 	collision_layer = 0
 	._ready()
+	health_curr = calculated_health
 
 func update_animation():
 	match state:

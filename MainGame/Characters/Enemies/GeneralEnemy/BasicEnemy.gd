@@ -101,7 +101,7 @@ func update_velocity(delta):
 			if len(attack_target) == 0:
 				state = chase
 				continue 
-			attack()
+			attack_move()
 
 func update_animation():
 	if direction != prev_direction and direction != 0:
@@ -111,7 +111,7 @@ func update_animation():
 	if state_machine.get_current_node() != animation:
 		state_machine.travel(animation)
 	
-func attack():
+func attack_move():
 	if attack_CD_curr == attack_CD:
 		able_to_attack = true
 		attack_CD_curr = 0

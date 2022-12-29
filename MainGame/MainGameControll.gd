@@ -2,7 +2,7 @@ extends Control
 
 var NumOfPlayer = 0
 var MapName = ""
-var FilePath : String = "res://GameData/Temp.json"
+var FilePath : String = "res://Data/Run.json"
 var data
 
 var dir = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
@@ -10,12 +10,8 @@ var curr_pos = Vector2(0,0)
 var rng = RandomNumberGenerator.new()
 var walk_direction : int
 onready var map = get_node("Map")
-var room = preload("res://MainGame/Maps/Lab/Labs.tscn")
-var test_room = preload("res://MainGame/Maps/Test_Room.tscn")
 var Ladder_List = []
 var cell_list = []
-
-var elevator = preload("res://MainGame/Maps/Lab/objects/Player_Spawner.tscn")
 
 var WINDOW_WIDTH = 640
 var WINDOW_HEIGHT = 320
@@ -36,48 +32,16 @@ func _ready():
 		print("json file invalid")
 		
 	# load map
-	generate_map(10)
+	load_map(data)
 	#load_test_map()
-	
-	#load player
-	NumOfPlayer = data["RoundData"]["NumOfPlayer"]
-	for i in range(1, NumOfPlayer+1):
-		var playernum = "Player%s" %[i]
-		var character = "res://MainGame/Characters/Players/PumpKing/PumpKing.tscn"
-		var player = load(character).instance()
-		player.id = i
-		player.set_name("Player_%s" % [i])
-		var temp = elevator.instance()
-		
-		temp.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[25,1000], [25,1000], 4, 4)
-		player.position = temp.position
-		temp.player = player
 
-		$ObjectList.add_child(temp)
-		
-	map_range_x = [map.get_node("CollisionLayer").get_used_rect().position.x, map.get_node("CollisionLayer").get_used_rect().end.x]
-	map_range_y = [map.get_node("CollisionLayer").get_used_rect().position.y, map.get_node("CollisionLayer").get_used_rect().end.y]
-		
-	for i in range(10):
-		var drawer = load("res://MainGame/Maps/Lab/objects/Drawer.tscn").instance()
-		drawer.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[map_range_x[0]*16, map_range_x[1]*16], [map_range_y[0]*16, map_range_y[1]*16], 2, 2)
-		
-		$ObjectList.add_child(drawer)
+func load_test_map(room):
 	
-	for i in range(3):
-		var collector = load("res://MainGame/Maps/Lab/objects/Collector.tscn").instance()
-		collector.position = Spawner.find_spawn_pos(map.get_node('CollisionLayer'),[map_range_x[0]*16, map_range_x[1]*16], [map_range_y[0]*16, map_range_y[1]*16], 6, 6)
-		
-		$ObjectList.add_child(collector)
-		
-
-func load_test_map():
-	var testroom = test_room.instance()
-	for v in testroom.get_used_cells():
-		map.get_node("CollisionLayer").set_cellv(v,testroom.get_cellv(v))
+	for v in room.get_used_cells():
+		map.get_node("CollisionLayer").set_cellv(v,room.get_cellv(v))
 		map.get_node("CollisionLayer").update_bitmask_area(v)
-	for v in testroom.get_node("Ladder").get_used_cells():
-		map.get_node("Ladder").set_cellv(v,testroom.get_node("Ladder").get_cellv(v))
+	for v in room.get_node("Ladder").get_used_cells():
+		map.get_node("Ladder").set_cellv(v,room.get_node("Ladder").get_cellv(v))
 		map.get_node("Ladder").update_bitmask_area(v)
 		v += Vector2(0,1) 
 		while map.get_node("CollisionLayer").get_cellv(v) == -1:
@@ -86,7 +50,7 @@ func load_test_map():
 			v += Vector2(0,1) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	#player controler
 	for i in $PlayerList.get_children():
@@ -119,8 +83,37 @@ func _on_BulletList_child_exiting_tree(node):
 #	particle.position = node.position
 #	particle.emitting = true
 #	get_node("ParticleList").add_child(particle)
+
+
+func load_map(data):
 	
-func generate_map(lens):
+	var room = load("res://MainGame/Maps/%s/%s.tscn" %[data["MapName"],data["MapName"]]).instance()
+	#map.get_node("CollisionLayer").tile_set = room.get_node("CollisionLayer").tile_set
+	
+	match int(DataLoader.map_data[data["MapName"]].Map_Type):
+		#procudural map geneartion
+		0:
+			#loading the basic collision and ladder layer
+			generate_map(room, rng.randi_range(DataLoader.map_data[data["MapName"]].Number_of_Rooms_Min, DataLoader.map_data[data["MapName"]].Number_of_Rooms_Max))
+			
+		#fixed map generation
+		1:
+			load_test_map(room)
+			
+	print('sucessfully load map')
+			
+	map_range_x = [map.get_node("CollisionLayer").get_used_rect().position.x, map.get_node("CollisionLayer").get_used_rect().end.x]
+	map_range_y = [map.get_node("CollisionLayer").get_used_rect().position.y, map.get_node("CollisionLayer").get_used_rect().end.y]
+		
+	#loading all the objects except player spawner
+	load_objects(DataLoader.map_data[data["MapName"]].Number_of_Objects)
+	print('sucessfully load objects')
+	
+	load_player()
+	print("sucessfully load players")
+
+func generate_map(room, size):
+	
 	rng.set_seed(OS.get_unix_time())
 	
 	var temp = false
@@ -131,7 +124,8 @@ func generate_map(lens):
 	cell_list.append(c)
 	curr_pos += dir[walk_direction]
 	
-	while len(cell_list) < lens:
+	#random walk
+	while len(cell_list) < size:
 		for j in cell_list:
 			if j.pos == curr_pos:
 				temp = true
@@ -145,53 +139,57 @@ func generate_map(lens):
 			c = Cell.new()
 			c.pos = curr_pos
 			c.passable[get_inverse_dir(walk_direction)] = 1
-			if len(cell_list) < lens-1:
+			if len(cell_list) < size-1:
 				walk_direction = rng.randi_range(0,3)
 				c.passable[walk_direction] = 1
 				curr_pos += dir[walk_direction]
 			cell_list.append(c)
 		temp = false
-		
+	
+	#load room	
 	for i in cell_list:
 		if sum(i.passable) == 0:
-			load_room(i.pos,'NULL')
+			load_room(room, i.pos,'NULL')
 			
 		elif sum(i.passable) == 4:
-			load_room(i.pos, 'LRUD')
+			load_room(room, i.pos, 'LRUD')
 
 		elif sum(i.passable) == 1:
-			if i.passable[0] == 1:
-				load_room(i.pos, 'R')
-			elif i.passable[1] == 1:
-				load_room(i.pos, 'R', true)
-			elif i.passable[2] == 1:
-				load_room(i.pos, 'D', false, true)
-			elif i.passable[3] == 1:
-				load_room(i.pos, 'D')
+			match i.passable:
+				[1,0,0,0]:
+					load_room(room, i.pos, 'R')
+				[0,1,0,0]:
+					load_room(room, i.pos, 'R', true)
+				[0,0,1,0]:
+					load_room(room, i.pos, 'D', false, true)
+				[0,0,0,1]:	
+					load_room(room, i.pos, 'D')
 
 		elif sum(i.passable) == 2:
-			if i.passable[0] == 1 and i.passable[1] == 1:
-				load_room(i.pos, 'LR')
-			elif i.passable[2] == 1 and i.passable[3] == 1:
-				load_room(i.pos, 'UD')
-			elif i.passable[0] == 1 and i.passable[3] == 1:
-				load_room(i.pos, 'RD',true)
-			elif i.passable[0] == 1 and i.passable[2] == 1:
-				load_room(i.pos, 'RD', true, true)
-			elif i.passable[1] == 1 and i.passable[3] == 1:
-				load_room(i.pos, 'RD', false)
-			elif i.passable[1] == 1 and i.passable[2] == 1:
-				load_room(i.pos, 'RD', false, true)
+			match i.passable:
+				[1,1,0,0]:
+					load_room(room, i.pos, 'LR')
+				[0,0,1,1]:
+					load_room(room, i.pos, 'UD')
+				[1,0,0,1]:
+					load_room(room, i.pos, 'RD',true)
+				[1,0,1,0]:
+					load_room(room, i.pos, 'RD', true, true)
+				[0,1,0,1]:
+					load_room(room, i.pos, 'RD', false)
+				[0,1,1,0]:
+					load_room(room, i.pos, 'RD', false, true)
 
 		elif sum(i.passable) == 3:
-			if i.passable[0] == 0:
-				load_room(i.pos, 'RUD')
-			elif i.passable[1] == 0:
-				load_room(i.pos, 'RUD', true)
-			elif i.passable[2] == 0:
-				load_room(i.pos, 'LRD')
-			elif i.passable[3] == 0:
-				load_room(i.pos, 'LRD', false, true)
+			match i.passable:
+				[0,1,1,1]:
+					load_room(room, i.pos, 'RUD')
+				[1,0,1,1]:
+					load_room(room, i.pos, 'RUD', true)
+				[1,1,0,1]:
+					load_room(room, i.pos, 'LRD')
+				[1,1,1,0]:
+					load_room(room, i.pos, 'LRD', false, true)
 				
 	map.get_node("CollisionLayer").update_bitmask_region(map.get_node("CollisionLayer").get_used_rect().position,map.get_node("CollisionLayer").get_used_rect().end)
 				
@@ -210,14 +208,14 @@ func sum(list):
 		temp += i
 	return temp
 
-func load_room(offset, roomtype, flipv = false, fliph = false):
-	var _room = room.instance()
-	var room_group = _room.get_node(roomtype)
+func load_room(room, offset, roomtype, flipv = false, fliph = false):
+	var room_group = room.get_node(roomtype)
 	var index = rng.randi_range(0, room_group.get_child_count()-1)
 	var target_room = room_group.get_child(index)
 	var ladder_room = room_group.get_child(index).get_child(0)
 	var room_size = target_room.get_used_rect().size
-	var map_offset = offset*room_size	
+	var map_offset = offset*room_size
+		
 	for v in target_room.get_used_cells():
 		var _offset = map_offset+v
 		if flipv:
@@ -227,7 +225,8 @@ func load_room(offset, roomtype, flipv = false, fliph = false):
 		if flipv and fliph:
 			_offset = Vector2(map_offset.x + room_size.x - v.x - 1, map_offset.y + room_size.y - v.y - 1)
 		map.get_node("CollisionLayer").set_cellv(_offset, target_room.get_cellv(v))
-		
+	
+	#get the place for placing ladder for later use	
 	for v in ladder_room.get_used_cells():
 		var _offset = map_offset+v
 		if flipv:
@@ -238,16 +237,64 @@ func load_room(offset, roomtype, flipv = false, fliph = false):
 			_offset = Vector2(map_offset.x + room_size.x - v.x - 1, map_offset.y + room_size.y - v.y - 1)
 		Ladder_List.append(_offset)
 
-
 func load_ladder(pos):
+	
 	map.get_node("Ladder").set_cellv(pos,0)
 	map.get_node("Ladder").update_bitmask_area(pos)
-	var trapdoor = load("res://MainGame/Maps/Lab/objects/trapdoor.tscn").instance()
+	
+	#load the trap door 
+	var trapdoor = load("res://MainGame/Objects/TrapDoor.tscn").instance()
 	trapdoor.position = map.get_node("Ladder").map_to_world(pos)
 	$ObjectList.add_child(trapdoor)
+	
+	#extend the ladder until it hit the floor
 	pos += Vector2(0,1) 
 	while map.get_node("CollisionLayer").get_cellv(pos) == -1:
 		if map.get_node("Ladder").get_cellv(pos-Vector2(1,0)) == -1 and map.get_node("Ladder").get_cellv(pos+Vector2(1,0)) == -1:
 			map.get_node("Ladder").set_cellv(pos, 0)
 			map.get_node("Ladder").update_bitmask_area(pos)
 		pos += Vector2(0,1) 
+
+func load_objects(object_array):
+	for key in object_array.keys():
+		
+		var value = object_array[key]
+		var width = DataLoader.object_data[key].Width
+		var height = DataLoader.object_data[key].Height
+		for i in range (value):
+			var object_i = load("res://MainGame/Objects/%s.tscn"%[key]).instance()
+			object_i.position = Spawner.find_spawn_pos(
+				map.get_node('CollisionLayer'),
+				[map_range_x[0]*8, map_range_x[1]*8], 
+				[map_range_y[0]*8, map_range_y[1]*8],
+				width, 
+				height)
+			$ObjectList.add_child(object_i)
+
+func load_player():
+	for i in data["PlayersData"].keys():
+		var player = load("res://MainGame/Characters/Players/%s/%s.tscn"%[data["PlayersData"][i]['Character'],data["PlayersData"][i]['Character']]).instance()
+		var character = DataLoader.character_data[data["PlayersData"][i]['Character']]
+		
+		#base value of player
+		player.name = "Player_%s"%[int(i)]
+		player.id = int(i)
+		player.base_health = character.Health
+		player.base_armor = character.Armor
+		player.base_CD = character.AttackSpeed * 60
+		player.base_damage = character.Damage
+		player.base_regen = character.Regen
+		
+		#changable value of player
+		player.PlayerData = data['PlayersData'][i]
+		player.health_curr = player.PlayerData['Health']
+		
+		var player_spawner = load("res://MainGame/Objects/PlayerSpawner.tscn").instance()
+		player_spawner.position = Spawner.find_spawn_pos(
+				map.get_node('CollisionLayer'),
+				[map_range_x[0]*8, map_range_x[1]*8], 
+				[map_range_y[0]*8, map_range_y[1]*8],
+				DataLoader.object_data["PlayerSpawner"].Width, 
+				DataLoader.object_data["PlayerSpawner"].Height)
+		player_spawner.player = player
+		$ObjectList.add_child(player_spawner)

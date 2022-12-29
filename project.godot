@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "interact_box",
 "language": "GDScript",
-"path": "res://MainGame/Maps/Lab/objects/InteractBox.gd"
+"path": "res://MainGame/Objects/InteractBox.gd"
 }, {
 "base": "Node2D",
 "class": "spawner",
@@ -103,11 +103,8 @@ config/icon="res://icon.png"
 Transition="*res://AutoLoad/transition.tscn"
 BgmPlayer="*res://AutoLoad/BGM_player.tscn"
 ButtonClickSfx="*res://AutoLoad/button_click_sfx.tscn"
-PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 Spawner="*res://AutoLoad/Spawner.gd"
+DataLoader="*res://AutoLoad/DataLoader.tscn"
 
 [display]
 
@@ -120,7 +117,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
 
 [global]
 

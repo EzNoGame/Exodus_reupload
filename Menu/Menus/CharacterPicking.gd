@@ -3,7 +3,7 @@ var curr_player_id = 1
 var curr_player_char = "PumpKing"
 var data
 var num_of_player : int
-var FilePath : String = "res://GameData/Temp.json"
+var FilePath : String = "res://Data/Run.json"
 
 func _ready():
 	$CharacterList/PumpKing.grab_focus()
@@ -25,10 +25,20 @@ func _ready():
 func _some_button_pressed(button):
 	ButtonClickSfx.play()
 	curr_player_char = button.name
-	data["RoundData"]["PlayersData"]["Player%s" %[curr_player_id]] = button.name
+	
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Character'] = button.name
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Num_of_Red'] = 0
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Num_of_Green'] = 0
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Num_of_Blue'] = 0
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Health'] = 100
+	data["PlayersData"]["Player%s" %[curr_player_id]]['EXP'] = 0
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Level'] = 0
+	data["PlayersData"]["Player%s" %[curr_player_id]]['Addons'] = {}
 	curr_player_id += 1
 	
-	if curr_player_id > data["RoundData"]["NumOfPlayer"]:
+	if curr_player_id > data["NumOfPlayer"]:
+		for i in $CharacterList.get_children():
+			i.disabled = true
 		set_process(false)
 		var savefile = File.new()
 		savefile.open(FilePath, File.WRITE)

@@ -1,7 +1,7 @@
 extends Control
 
 var data 
-var FilePath : String = "res://GameData/Temp.json"
+var FilePath : String = "res://Data/Run.json"
 
 func _ready():
 	$"VBoxContainer/2 Player".grab_focus()

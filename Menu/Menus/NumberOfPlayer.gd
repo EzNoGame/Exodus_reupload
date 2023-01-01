@@ -11,6 +11,7 @@ func _ready():
 		var json = JSON.parse(file.get_as_text())
 		file.close()
 		data = json.result
+		data["MapName"] = 'Lab'
 	else:
 		print("json file invalid")
 
@@ -23,17 +24,17 @@ func save_file_data():
 	Transition.change_scene("res://Menu/Menus/CharacterPicking.tscn")
 
 func _on_2_Player_pressed():
-	data["RoundData"]["NumOfPlayer"] = 2
+	data["NumOfPlayer"] = 2
 	save_file_data()
 	pass # Replace with function body.
 
 func _on_3_Player_pressed():
-	data["RoundData"]["NumOfPlayer"] = 3
+	data["NumOfPlayer"] = 3
 	save_file_data()
 	pass # Replace with function body.
 
 func _on_4_Player_pressed():
-	data["RoundData"]["NumOfPlayer"] = 4
+	data["NumOfPlayer"] = 4
 	save_file_data()
 	pass # Replace with function body.
 

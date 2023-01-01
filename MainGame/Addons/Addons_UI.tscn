@@ -1,0 +1,424 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://MainGame/Addons/UI_bg..png" type="Texture" id=1]
+[ext_resource path="res://MainGame/Characters/Chips/Blue_Chip.png" type="Texture" id=2]
+[ext_resource path="res://MainGame/Characters/Chips/Green_Chip.png" type="Texture" id=3]
+[ext_resource path="res://MainGame/Characters/Chips/Red_Chip.png" type="Texture" id=4]
+[ext_resource path="res://MainGame/Addons/Turtle_Shell.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Default_regular.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Menu/Menus/MainMenu.tres" type="Theme" id=7]
+[ext_resource path="res://MainGame/Addons/frame.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[node name="Node2D" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -150.0
+margin_right = 250.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 500, 300 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Addons_Stored" type="GridContainer" parent="."]
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 322.0
+margin_bottom = 185.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 7
+
+[node name="Panel" type="Panel" parent="Addons_Stored"]
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel2" type="Panel" parent="Addons_Stored"]
+margin_left = 46.0
+margin_right = 82.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel15" type="Panel" parent="Addons_Stored"]
+margin_left = 92.0
+margin_right = 128.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel16" type="Panel" parent="Addons_Stored"]
+margin_left = 138.0
+margin_right = 174.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel17" type="Panel" parent="Addons_Stored"]
+margin_left = 184.0
+margin_right = 220.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel18" type="Panel" parent="Addons_Stored"]
+margin_left = 230.0
+margin_right = 266.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel19" type="Panel" parent="Addons_Stored"]
+margin_left = 276.0
+margin_right = 312.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel20" type="Panel" parent="Addons_Stored"]
+margin_top = 46.0
+margin_right = 36.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel21" type="Panel" parent="Addons_Stored"]
+margin_left = 46.0
+margin_top = 46.0
+margin_right = 82.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel22" type="Panel" parent="Addons_Stored"]
+margin_left = 92.0
+margin_top = 46.0
+margin_right = 128.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel23" type="Panel" parent="Addons_Stored"]
+margin_left = 138.0
+margin_top = 46.0
+margin_right = 174.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel24" type="Panel" parent="Addons_Stored"]
+margin_left = 184.0
+margin_top = 46.0
+margin_right = 220.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel25" type="Panel" parent="Addons_Stored"]
+margin_left = 230.0
+margin_top = 46.0
+margin_right = 266.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel26" type="Panel" parent="Addons_Stored"]
+margin_left = 276.0
+margin_top = 46.0
+margin_right = 312.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel27" type="Panel" parent="Addons_Stored"]
+margin_top = 92.0
+margin_right = 36.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel28" type="Panel" parent="Addons_Stored"]
+margin_left = 46.0
+margin_top = 92.0
+margin_right = 82.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel3" type="Panel" parent="Addons_Stored"]
+margin_left = 92.0
+margin_top = 92.0
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel4" type="Panel" parent="Addons_Stored"]
+margin_left = 138.0
+margin_top = 92.0
+margin_right = 174.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel5" type="Panel" parent="Addons_Stored"]
+margin_left = 184.0
+margin_top = 92.0
+margin_right = 220.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel6" type="Panel" parent="Addons_Stored"]
+margin_left = 230.0
+margin_top = 92.0
+margin_right = 266.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel7" type="Panel" parent="Addons_Stored"]
+margin_left = 276.0
+margin_top = 92.0
+margin_right = 312.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel8" type="Panel" parent="Addons_Stored"]
+margin_top = 138.0
+margin_right = 36.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel9" type="Panel" parent="Addons_Stored"]
+margin_left = 46.0
+margin_top = 138.0
+margin_right = 82.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel10" type="Panel" parent="Addons_Stored"]
+margin_left = 92.0
+margin_top = 138.0
+margin_right = 128.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel11" type="Panel" parent="Addons_Stored"]
+margin_left = 138.0
+margin_top = 138.0
+margin_right = 174.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel12" type="Panel" parent="Addons_Stored"]
+margin_left = 184.0
+margin_top = 138.0
+margin_right = 220.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel13" type="Panel" parent="Addons_Stored"]
+margin_left = 230.0
+margin_top = 138.0
+margin_right = 266.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel14" type="Panel" parent="Addons_Stored"]
+margin_left = 276.0
+margin_top = 138.0
+margin_right = 312.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Addons_Equiped" type="HBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 204.0
+margin_right = 418.0
+margin_bottom = 296.0
+custom_constants/separation = 5
+
+[node name="Panel" type="Panel" parent="Addons_Equiped"]
+margin_top = 14.0
+margin_right = 64.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 2 )
+
+[node name="Panel2" type="Panel" parent="Addons_Equiped"]
+margin_left = 69.0
+margin_top = 14.0
+margin_right = 133.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 2 )
+
+[node name="Panel3" type="Panel" parent="Addons_Equiped"]
+margin_left = 138.0
+margin_top = 14.0
+margin_right = 202.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 2 )
+
+[node name="Panel4" type="Panel" parent="Addons_Equiped"]
+margin_left = 207.0
+margin_top = 14.0
+margin_right = 271.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 2 )
+
+[node name="Panel5" type="Panel" parent="Addons_Equiped"]
+margin_left = 276.0
+margin_top = 14.0
+margin_right = 340.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 2 )
+
+[node name="Panel6" type="Panel" parent="Addons_Equiped"]
+margin_left = 345.0
+margin_top = 14.0
+margin_right = 409.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 430.0
+margin_top = 198.0
+margin_right = 499.0
+margin_bottom = 300.0
+custom_constants/separation = 10
+
+[node name="Control4" type="Control" parent="VBoxContainer"]
+margin_right = 69.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 10.0
+margin_right = 69.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control"]
+margin_left = 5.0
+margin_right = 21.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Control"]
+margin_left = 28.0
+margin_top = 3.0
+margin_right = 56.0
+margin_bottom = 14.0
+theme = ExtResource( 7 )
+text = "16/16"
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 69.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control2"]
+margin_left = 5.0
+margin_right = 21.0
+margin_bottom = 16.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Control2"]
+margin_left = 28.0
+margin_top = 2.0
+margin_right = 56.0
+margin_bottom = 13.0
+theme = ExtResource( 7 )
+text = "16/16"
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+margin_top = 62.0
+margin_right = 69.0
+margin_bottom = 78.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control3"]
+margin_left = 5.0
+margin_right = 21.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Control3"]
+margin_left = 28.0
+margin_top = 3.0
+margin_right = 56.0
+margin_bottom = 14.0
+theme = ExtResource( 7 )
+text = "16/16"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 333.0
+margin_top = -1.0
+margin_right = 497.0
+margin_bottom = 193.0
+custom_constants/separation = 10
+
+[node name="Control" type="Control" parent="VBoxContainer2"]
+margin_right = 164.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+margin_left = 32.0
+margin_top = 10.0
+margin_right = 132.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+expand = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
+margin_left = 7.0
+margin_top = 120.0
+margin_right = 157.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 150, 70 )
+size_flags_horizontal = 4
+theme = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 6 )
+text = "Turtle Shell: grant 100 additional armor, but decrease speed by 50 %."

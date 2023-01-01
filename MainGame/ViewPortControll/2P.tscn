@@ -36,6 +36,7 @@ script = ExtResource( 3 )
 [node name="ParallaxBackground" parent="Viewports/ViewportContainer1/Viewport1" instance=ExtResource( 1 )]
 
 [node name="1" parent="Viewports/ViewportContainer1" instance=ExtResource( 5 )]
+position = Vector2( 10, 292 )
 
 [node name="ViewportContainer2" type="ViewportContainer" parent="Viewports"]
 margin_left = 322.0
@@ -58,4 +59,4 @@ script = ExtResource( 3 )
 [node name="ParallaxBackground" parent="Viewports/ViewportContainer2/Viewport2" instance=ExtResource( 1 )]
 
 [node name="2" parent="Viewports/ViewportContainer2" instance=ExtResource( 5 )]
-position = Vector2( 0, -1 )
+position = Vector2( 12, 294 )

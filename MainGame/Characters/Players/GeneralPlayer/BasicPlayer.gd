@@ -47,7 +47,7 @@ var PlayerData = {
 }
 
 func _ready():
-	self.EXP_to_next_level = pow(PlayerData['Level'],2)*3 + 25
+	self.EXP_to_next_level = 10
 	self.h_acc = 90
 	self.h_cap = 260
 	self.g_acc = 40
@@ -230,8 +230,8 @@ func _on_Timer_timeout():
 
 func level_up():
 	PlayerData['Level'] += 1
-	EXP_to_next_level = pow(PlayerData['Level'],2)*3 + 25
+	EXP_to_next_level = pow(PlayerData['Level'],2)*3 + 20
 	var i = rng.randi_range(0,2)
 	var keys = ['Red', 'Blue', 'Green']
 	var key = keys[i]
-	PlayerData['Num_of_%s' %key]
+	PlayerData['Num_of_%s' %key] += 1

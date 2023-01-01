@@ -32,3 +32,4 @@ script = ExtResource( 3 )
 [node name="ParallaxBackground" parent="ViewportContainer/Viewport1" instance=ExtResource( 2 )]
 
 [node name="Player_stat" parent="ViewportContainer" instance=ExtResource( 5 )]
+position = Vector2( 3, 293 )

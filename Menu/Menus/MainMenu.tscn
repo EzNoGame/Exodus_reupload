@@ -30,8 +30,8 @@ size_flags_vertical = 4
 custom_constants/separation = 20
 
 [node name="SinglePlayer" type="Button" parent="VBoxContainer"]
-margin_left = 42.0
-margin_right = 142.0
+margin_left = 38.0
+margin_right = 146.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 4

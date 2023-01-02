@@ -2,6 +2,11 @@ extends BasicCharacter
 
 class_name Player
 
+var base_h_acc
+var base_h_cap
+var calculated_h_acc
+var calculated_h_cap
+
 var curr_coyote_time : int = 30
 var max_coyote_time : int = 30
 var jump_acc_counter = 0
@@ -39,7 +44,8 @@ var EXP_to_next_level
 var freeze = false
 
 var PlayerData = {
-	'Addons' : {},
+	'AddonsInInventory':[],
+	'AddonsEquiped' : [],
 	'EXP' : 0,
 	'Level' : 0,
 	'Num_of_Green' : 0,
@@ -50,8 +56,10 @@ var PlayerData = {
 
 func _ready():
 	self.EXP_to_next_level = 10
-	self.h_acc = 1
-	self.h_cap = 150
+	self.base_h_acc = 1
+	self.base_h_cap = 150
+	self.calculated_h_acc = base_h_acc
+	self.calculated_h_cap = base_h_cap
 	self.g_acc = 12
 	self.g_cap = 250
 	self.j_acc = 40
@@ -77,8 +85,8 @@ func update_velocity(delta):
 			velocity.x = 30
 		facing_right = false
 		curr_anim = "Walk"
-		if velocity.x > -h_cap:
-			velocity.x += h_acc*delta*(-h_cap-velocity.x)/h_cap*7.5
+		if velocity.x > -calculated_h_cap:
+			velocity.x += calculated_h_acc*delta*(-calculated_h_cap-velocity.x)/calculated_h_cap*7.5
 
 	#walk right		
 	elif Input.is_action_pressed("right_player_%s" % [id]):
@@ -86,8 +94,8 @@ func update_velocity(delta):
 			velocity.x = -30
 		facing_right = true
 		curr_anim = "Walk"
-		if velocity.x < h_cap:
-			velocity.x += h_acc*delta*(h_cap-velocity.x)/h_cap*7.5
+		if velocity.x < calculated_h_cap:
+			velocity.x += calculated_h_acc*delta*(calculated_h_cap-velocity.x)/calculated_h_cap*7.5
 	
 	#friction
 	else:
@@ -96,8 +104,8 @@ func update_velocity(delta):
 		else:
 			velocity.x = 0
 	
-	if abs(velocity.x) > h_cap:
-		velocity.x = h_cap*(velocity.x/abs(velocity.x))
+	if abs(velocity.x) > calculated_h_cap:
+		velocity.x = calculated_h_cap*(velocity.x/abs(velocity.x))
 
 	#vertical movement
 
@@ -167,7 +175,7 @@ func update_animation():
 		apply_scale(Vector2(-1,1))
 		curr_facing = facing_right
 		
-	if abs(velocity.x) > 50 and is_on_floor():
+	if abs(velocity.x) > 10 and is_on_floor():
 		animation = 'Walk'
 		
 	elif not is_on_floor() and velocity.y > 0:
@@ -234,22 +242,37 @@ func _process(delta):
 		else:
 			toggle_script_on()
 			freeze = false
-	
+			yield(get_tree(), "idle_frame")
+			var file = File.new()
+			if file.open('Data/Run.json', File.READ) == OK:
+				file.open('Data/Run.json', File.READ)
+				var json = JSON.parse(file.get_as_text())
+				file.close()
+				var data = json.result
+				PlayerData = data['PlayersData']["Player%s"%[id]] 
 
 func take_damage(dmg):
 	.take_damage(dmg)
 	state_machine.start('Hurt')
+	
+func death_handling():
+	Transition.change_scene("res://Menu/Menus/settlement.tscn")
 	
 func regen():
 	if health_curr < calculated_health:
 		health_curr += calculated_regen
 	
 func _process_stats():
-	calculated_health = base_health*(1+0.1*PlayerData['Num_of_Green'])
-	calculated_regen = base_regen*(1+0.3*PlayerData['Num_of_Green'])
-	calculated_damage = base_damage*(1+0.1*PlayerData['Num_of_Red'])
-	calculated_armor = PlayerData['Num_of_Red']*1.5
-	calculated_CD = base_CD * (1*pow(0.98,PlayerData['Num_of_Blue']))
+	
+	apply_modify()
+	
+	calculated_h_acc = calculated_h_acc * (1+0.05*(PlayerData['Num_of_Blue']))
+	calculated_h_cap= calculated_h_cap * (1+0.05*(PlayerData['Num_of_Blue']))
+	calculated_health = calculated_health*(1+0.1*PlayerData['Num_of_Green'])
+	calculated_regen = calculated_regen*(1+0.3*PlayerData['Num_of_Green'])
+	calculated_damage = calculated_damage*(1+0.1*PlayerData['Num_of_Red'])
+	calculated_armor = calculated_armor + PlayerData['Num_of_Red']*1.5
+	calculated_CD = calculated_CD * (1*pow(0.98,PlayerData['Num_of_Blue']))
 	#ult cd with data
 
 func _on_Timer_timeout():
@@ -263,3 +286,19 @@ func level_up():
 	var keys = ['Red', 'Blue', 'Green']
 	var key = keys[i]
 	PlayerData['Num_of_%s' %key] += 1
+
+func apply_modify():
+	calculated_h_acc = base_h_acc
+	calculated_h_cap= base_h_cap
+	calculated_health = base_health
+	calculated_regen = base_regen
+	calculated_damage = base_damage
+	calculated_armor = base_armor
+	calculated_CD = base_CD
+	
+	for i in PlayerData["AddonsEquiped"]:
+		var effect = DataLoader.addon_data[i]['effect']
+		for j in effect['addition']:
+			set("calculated_%s"%[j], get("calculated_%s"%[j])+effect['addition'][j])
+		for j in effect['multiply']:
+			set("calculated_%s"%[j], get("calculated_%s"%[j])*effect['multiply'][j])

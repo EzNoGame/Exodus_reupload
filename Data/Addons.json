@@ -4,5 +4,17 @@
         "Red": 0,
         "Blue":0,
         "Green":5
+    },
+    "effect":{
+        "addition":{
+            "armor":100
+        },
+        "multiply":{
+            "h_acc" : 0.5,
+            "h_cap" : 0.5
+        },
+        "other":{
+
+        }
     }
 }}

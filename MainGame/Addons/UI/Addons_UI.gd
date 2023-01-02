@@ -45,6 +45,8 @@ func equip(Name):
 	green + DataLoader.addon_data[Name]["Cost"]["Green"] <= data["PlayersData"]["Player%s"%target.id]["Num_of_Green"]):
 		update_cost(Name)
 		update_text()
+		data["PlayersData"]["Player%s"%target.id]['AddonsInInventory'].erase(Name)
+		data["PlayersData"]["Player%s"%target.id]['AddonsEquiped'].append(Name)
 		for i in $Addons_Equiped.get_children():
 			if i.texture_normal == null:
 				i.texture_normal = load("res://MainGame/Addons/%s.png"%Name)
@@ -58,11 +60,20 @@ func disrobe(Name):
 	blue -= DataLoader.addon_data[Name]["Cost"]["Blue"]
 	green -= DataLoader.addon_data[Name]["Cost"]["Green"]
 	update_text()
+	data["PlayersData"]["Player%s"%target.id]['AddonsEquiped'].erase(Name)
+	data["PlayersData"]["Player%s"%target.id]['AddonsInInventory'].append(Name)
 	for i in $Addons_Stored.get_children():
 			if i.texture_normal == null:
 				i.texture_normal = load("res://MainGame/Addons/%s.png"%Name)
 				i.addon_name = Name
 				break
+
+func close():
+	var file = File.new()
+	file.open(filepath,File.WRITE)
+	file.store_line(to_json(data))
+	file.close()
+	queue_free()
 
 func update_cost(Name):
 	red += DataLoader.addon_data[Name]["Cost"]["Red"]

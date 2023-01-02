@@ -99,6 +99,8 @@ func take_damage(target):
 	#take damage
 	var dmg = 100*target.damage/(100+calculated_armor)
 	health_curr -= dmg
+	if health_curr< 0:
+		death_handling()
 	
 	#adding floating text
 	var dmg_display = preload("res://MainGame/Characters/Addons/DamageDisplay.tscn").instance()

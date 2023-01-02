@@ -3,7 +3,7 @@
    "Number_of_Rooms_Max": 50,
    "Map_Type": 0,
    "Number_of_Objects": {
-    "Collector": 1, 
+    "Collector": 5, 
     "Drawer": 15, 
     "NextLevel": 10
   }},

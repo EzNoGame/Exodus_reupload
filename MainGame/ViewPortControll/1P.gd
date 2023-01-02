@@ -14,5 +14,5 @@ func _process(delta):
 			$UI.add_child(addon)
 			pause = true
 		else:
-			$UI/Menu.queue_free()
+			$UI/Menu.close()
 			pause = false

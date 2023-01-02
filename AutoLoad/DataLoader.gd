@@ -4,6 +4,7 @@ var object_data
 var enemy_data
 var character_data
 var map_data
+var addon_data
 
 func _ready():
 	
@@ -37,5 +38,16 @@ func _ready():
 		var json = JSON.parse(file.get_as_text())
 		file.close()
 		character_data = json.result
+	else:
+		print("json file invalid")
+		
+	#load the playable character data
+	filepath = "res://Data/Addons.json"
+	file = File.new()
+	if file.open(filepath, File.READ) == OK:
+		file.open(filepath, File.READ)
+		var json = JSON.parse(file.get_as_text())
+		file.close()
+		addon_data = json.result
 	else:
 		print("json file invalid")

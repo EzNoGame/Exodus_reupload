@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UI_bg..png-9e1914f63effeda19f484e6978cff616.stex"
+path="res://.import/UI_bg..png-c0808e61fce229c172404123e2c654dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGame/Addons/UI_bg..png"
-dest_files=[ "res://.import/UI_bg..png-9e1914f63effeda19f484e6978cff616.stex" ]
+source_file="res://MainGame/Addons/UI/UI_bg..png"
+dest_files=[ "res://.import/UI_bg..png-c0808e61fce229c172404123e2c654dc.stex" ]
 
 [params]
 

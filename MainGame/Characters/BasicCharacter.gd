@@ -64,13 +64,11 @@ func _ready():
 	enable = true
 	state_machine = $AnimationTree.get("parameters/playback")
 	
-#call to update velocity and more state	
-func _process(delta):
-	update_velocity(delta)
-	update_animation()
-	
 # apply physics
 func _physics_process(delta):
+	var _delta = delta * 60
+	update_velocity(_delta)
+	update_animation()
 	move_and_slide(velocity,Vector2.UP)
 
 # calculate velocity
@@ -89,12 +87,10 @@ func death_handling():
 #pause script
 func toggle_script_off():
 	enable = false
-	set_process(enable)
 	set_physics_process(enable)
 
 func toggle_script_on():
 	enable = true
-	set_process(enable)
 	set_physics_process(enable)
 	
 #take damage, call when a hitbox enter the hurtbox

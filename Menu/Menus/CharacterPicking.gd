@@ -33,7 +33,8 @@ func _some_button_pressed(button):
 	data["PlayersData"]["Player%s" %[curr_player_id]]['Health'] = 100
 	data["PlayersData"]["Player%s" %[curr_player_id]]['EXP'] = 0
 	data["PlayersData"]["Player%s" %[curr_player_id]]['Level'] = 0
-	data["PlayersData"]["Player%s" %[curr_player_id]]['Addons'] = {}
+	data["PlayersData"]["Player%s" %[curr_player_id]]['AddonsInInventory'] = []
+	data["PlayersData"]["Player%s" %[curr_player_id]]['AddonsEquiped'] = []
 	curr_player_id += 1
 	
 	if curr_player_id > data["NumOfPlayer"]:

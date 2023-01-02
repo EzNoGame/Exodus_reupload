@@ -1,0 +1,8 @@
+{"TurtleShell":{
+    "Description":"Turtle Shell: grant 100 additional armor, but decrease speed by 50 %.",
+    "Cost":{
+        "Red": 0,
+        "Blue":0,
+        "Green":5
+    }
+}}

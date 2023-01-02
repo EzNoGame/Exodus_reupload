@@ -44,7 +44,8 @@ func _ready():
 	
 func update_velocity(delta):
 	
-	velocity.y += 10
+	velocity.y += 10*delta
+	
 	if is_on_floor():
 		velocity.y = 0
 		

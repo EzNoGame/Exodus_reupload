@@ -145,6 +145,20 @@ func generate_map(room, size):
 				curr_pos += dir[walk_direction]
 			cell_list.append(c)
 		temp = false
+		
+	#fill the cornor
+	for i in range(len(cell_list)):
+		for j in range(len(cell_list[i].passable)):
+			if cell_list[i].passable[j] == 0:
+				var new_cell = true
+				for k in cell_list:
+					if k.pos == cell_list[i].pos + dir[j]:
+						new_cell = false
+						break
+				if new_cell:
+					c = Cell.new()
+					c.pos = cell_list[i].pos + dir[j]
+					cell_list.append(c)
 	
 	#load room	
 	for i in cell_list:

@@ -36,6 +36,8 @@ var id
 
 var EXP_to_next_level
 
+var freeze = false
+
 var PlayerData = {
 	'Addons' : {},
 	'EXP' : 0,
@@ -48,13 +50,14 @@ var PlayerData = {
 
 func _ready():
 	self.EXP_to_next_level = 10
-	self.h_acc = 90
-	self.h_cap = 260
-	self.g_acc = 40
-	self.g_cap = 550
-	self.j_acc = 100
+	self.h_acc = 1
+	self.h_cap = 150
+	self.g_acc = 12
+	self.g_cap = 250
+	self.j_acc = 40
 	self.friendly = true
 	self.creator = self
+	base_CD = 0.5
 	calculated_CD = base_CD
 	_timer = Timer.new()
 	self.add_child(_timer)
@@ -66,7 +69,6 @@ func _ready():
 
 
 func update_velocity(delta):
-
 	#horizonal movement
 
 	#wak left
@@ -86,20 +88,22 @@ func update_velocity(delta):
 		curr_anim = "Walk"
 		if velocity.x < h_cap:
 			velocity.x += h_acc*delta*(h_cap-velocity.x)/h_cap*7.5
-
+	
 	#friction
 	else:
 		if abs(velocity.x) > 1:
 			velocity.x = velocity.x*1/2
 		else:
 			velocity.x = 0
-
+	
+	if abs(velocity.x) > h_cap:
+		velocity.x = h_cap*(velocity.x/abs(velocity.x))
 
 	#vertical movement
 
 	#gravity
 	if velocity.y < g_cap:	
-		velocity.y += g_acc
+		velocity.y += g_acc*delta
 	
 	if is_on_floor():
 		velocity.y = 5
@@ -125,7 +129,7 @@ func update_velocity(delta):
 		if jump_acc_counter < jump_frame_num:
 			if velocity.y > 0:
 				velocity.y = 0
-			velocity.y -= j_acc
+			velocity.y -= j_acc*delta
 			jump_acc_counter += 1
 			
 		if jump_acc_counter == jump_frame_num:
@@ -182,7 +186,7 @@ func ult():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	
 	#level control
 	if EXP >= EXP_to_next_level:
@@ -191,7 +195,7 @@ func _process(delta):
 	
 	#control attacking cd
 	if curr_shoot_CD > 0:
-		curr_shoot_CD -= 1
+		curr_shoot_CD -= 1*delta
 	
 	#handling basic attack	
 	if Input.is_action_pressed("attack_player_%s" % [id]) and curr_shoot_CD <= 0:
@@ -202,16 +206,40 @@ func _process(delta):
 		curr_shoot_CD = calculated_CD
 	
 	#handling animation and velocity update	
-	._process(delta)
-	
+	._physics_process(delta)
 	#handling ultimate
 	ult()
+
+func _process(delta):
+	if Input.is_action_just_pressed("Addons_player_%s"%[id]):
+		if not freeze:
+			var data
+			var file = File.new()
+			if file.open("Data/Run.json", File.READ) == OK:
+				file.open("Data/Run.json", File.READ)
+				var json = JSON.parse(file.get_as_text())
+				file.close()
+				data = json.result
+			else:
+				print("json file invalid")
+				
+			PlayerData['Health'] = health_curr
+			data['PlayersData']["Player%s"%[id]] = PlayerData
+				
+			file.open("Data/Run.json",File.WRITE)
+			file.store_line(to_json(data))
+			file.close()
+			toggle_script_off()
+			freeze = true
+		else:
+			toggle_script_on()
+			freeze = false
+	
 
 func take_damage(dmg):
 	.take_damage(dmg)
 	state_machine.start('Hurt')
 	
-
 func regen():
 	if health_curr < calculated_health:
 		health_curr += calculated_regen

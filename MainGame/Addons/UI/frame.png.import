@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frame.png-82a378730da890cfdd57be608416284d.stex"
+path="res://.import/frame.png-37b0f81cfb8ab57b17bb9737b340090d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGame/Addons/frame.png"
-dest_files=[ "res://.import/frame.png-82a378730da890cfdd57be608416284d.stex" ]
+source_file="res://MainGame/Addons/UI/frame.png"
+dest_files=[ "res://.import/frame.png-37b0f81cfb8ab57b17bb9737b340090d.stex" ]
 
 [params]
 

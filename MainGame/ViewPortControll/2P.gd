@@ -4,8 +4,8 @@ onready var viewport1 = $Viewports/ViewportContainer1/Viewport1
 onready var viewport2 = $Viewports/ViewportContainer2/Viewport2
 onready var camera1 = $Viewports/ViewportContainer1/Viewport1/Camera2D
 onready var camera2 = $Viewports/ViewportContainer2/Viewport2/Camera2D
-onready var UI1 = $Viewports/ViewportContainer1/Control
-onready var UI2 = $Viewports/ViewportContainer2/Control
+onready var UI1 = $Viewports/ViewportContainer1/UI
+onready var UI2 = $Viewports/ViewportContainer2/UI
 onready var world = $Viewports/ViewportContainer1/Viewport1/MainGameScene
 
 func _ready():

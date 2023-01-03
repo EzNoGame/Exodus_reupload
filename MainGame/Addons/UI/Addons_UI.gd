@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var filepath = "Data/Run.json"
 
@@ -10,8 +10,14 @@ var red = 0
 var blue = 0
 var green = 0
 
-func _ready():
+func _process(delta):
+	if target == null:
+		if get_parent().target != null:
+			target = get_parent().target
+
+func appear():
 	
+	yield(get_tree().create_timer(0.01), "timeout")
 	#read the player data
 	var file = File.new()
 	if file.open(filepath, File.READ) == OK:
@@ -21,7 +27,7 @@ func _ready():
 		data = json.result
 	else:
 		print("json file invalid")
-	
+
 	#show addons in inventory	
 	var inventory = data["PlayersData"]["Player%s"%target.id]["AddonsInInventory"]
 	var equiped = data["PlayersData"]["Player%s"%target.id]["AddonsEquiped"]
@@ -37,7 +43,15 @@ func _ready():
 		slot.texture_normal = load("MainGame/Addons/%s.png" %equiped[i])
 		update_cost(equiped[i])
 		slot.addon_name = equiped[i]
-	update_text()	
+	update_text()
+	show()	
+
+func disappear():
+	var file = File.new()
+	file.open(filepath,File.WRITE)
+	file.store_line(to_json(data))
+	file.close()
+	hide()
 	
 func equip(Name):
 	if (red + DataLoader.addon_data[Name]["Cost"]["Red"] <= data["PlayersData"]["Player%s"%target.id]["Num_of_Red"] and
@@ -67,13 +81,6 @@ func disrobe(Name):
 				i.texture_normal = load("res://MainGame/Addons/%s.png"%Name)
 				i.addon_name = Name
 				break
-
-func close():
-	var file = File.new()
-	file.open(filepath,File.WRITE)
-	file.store_line(to_json(data))
-	file.close()
-	queue_free()
 
 func update_cost(Name):
 	red += DataLoader.addon_data[Name]["Cost"]["Red"]

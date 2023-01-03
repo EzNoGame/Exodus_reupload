@@ -38,6 +38,7 @@ rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource( 2 )
+disabled = true
 text = "3 Player"
 
 [node name="4 Player" type="Button" parent="VBoxContainer"]
@@ -49,6 +50,7 @@ rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource( 2 )
+disabled = true
 text = "4 Player"
 
 [node name="Return" type="Button" parent="VBoxContainer"]

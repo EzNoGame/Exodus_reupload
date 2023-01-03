@@ -1,1 +1,1 @@
-{"MapName":"Lab","NumOfPlayer":1,"PlayersData":{"Player1":{"AddonsEquiped":[],"AddonsInInventory":["TurtleShell"],"Character":"PumpKing","EXP":0,"Health":94.648012,"Level":0,"Num_of_Blue":0,"Num_of_Green":1,"Num_of_Red":1}},"Score":{}}
+{"MapName":"Lab","NumOfPlayer":1,"PlayersData":{"Player1":{"AddonsEquiped":["TurtleShell"],"AddonsInInventory":["TurtleShell","TurtleShell","TurtleShell","TurtleShell","TurtleShell","TurtleShell","TurtleShell"],"Character":"PumpKing","EXP":0,"Health":140.519469,"Level":5,"Num_of_Blue":27,"Num_of_Green":5,"Num_of_Red":9}},"Score":{}}

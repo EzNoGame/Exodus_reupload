@@ -1,6 +1,7 @@
 extends Player
 
 func _ready():
+	base_CD = 0.5
 	self.attack_range = 'range'
 	self.ulting_frame = 4
 	self.basic_att_bullet = preload("res://MainGame/Bullets/PumpKingBullets/Basic/PumpKingBullet.tscn")
@@ -9,4 +10,4 @@ func _ready():
 
 func range_attack():
 	.range_attack()
-	$AttackSound.play()
+	SfxController.playSFX("res://sound effect/SFX/Gunshot Sound Effect.mp3")

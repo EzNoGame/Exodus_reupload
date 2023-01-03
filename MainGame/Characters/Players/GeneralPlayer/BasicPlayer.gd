@@ -15,7 +15,7 @@ var jump_frame_num = 10
 
 var curr_facing = true
 
-var base_CD
+var base_CD = 100
 var calculated_CD
 var curr_shoot_CD = 0
 var need_to_add_bullet = false
@@ -65,7 +65,6 @@ func _ready():
 	self.j_acc = 40
 	self.friendly = true
 	self.creator = self
-	base_CD = 0.5
 	calculated_CD = base_CD
 	_timer = Timer.new()
 	self.add_child(_timer)
@@ -239,6 +238,7 @@ func _process(delta):
 			file.close()
 			toggle_script_off()
 			freeze = true
+			
 		else:
 			toggle_script_on()
 			freeze = false

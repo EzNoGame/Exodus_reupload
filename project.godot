@@ -105,6 +105,7 @@ BgmPlayer="*res://AutoLoad/BGM_player.tscn"
 ButtonClickSfx="*res://AutoLoad/button_click_sfx.tscn"
 Spawner="*res://AutoLoad/Spawner.gd"
 DataLoader="*res://AutoLoad/DataLoader.tscn"
+SfxController="*res://AutoLoad/SFX_Controller.tscn"
 
 [display]
 

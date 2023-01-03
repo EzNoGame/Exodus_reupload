@@ -52,9 +52,9 @@ func _some_button_pressed(button):
 func _process(delta):
 	curr_player_char = get_focus_owner().name
 	if curr_player_char == "Return":
-		get_node("Label").text = ""
+		get_node("Label").text = "Return to main menu"
 	else:
-		get_node("Label").text = "Now Player %s is picking: %s" %[curr_player_id, curr_player_char]
+		get_node("Label").text = "Now player %s is picking: %s" %[curr_player_id, curr_player_char]
 	pass
 
 func _on_Return_pressed():

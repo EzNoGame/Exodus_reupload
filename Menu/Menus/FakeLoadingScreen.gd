@@ -1,12 +1,10 @@
 extends Control
 
 var rng = RandomNumberGenerator.new()
-var bgm = preload("res://sound effect/BGM/airtone_-_blackSnow_1.mp3")
 var FilePath : String = "res://Data/Run.json"
 var data = {}
 
 func _ready():
-	BgmPlayer.stop()
 	var file = File.new()
 	if file.open(FilePath, File.READ) == OK:
 		file.open(FilePath, File.READ)
@@ -16,6 +14,4 @@ func _ready():
 	else:
 		print("json file invalid")
 	yield(get_tree().create_timer(3.0), "timeout")
-	BgmPlayer.stream = bgm
-	BgmPlayer.play()
 	Transition.change_scene("res://MainGame/ViewPortcontroll/%sP.tscn" %data["NumOfPlayer"])

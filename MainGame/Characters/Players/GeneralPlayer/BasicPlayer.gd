@@ -43,6 +43,8 @@ var EXP_to_next_level
 
 var freeze = false
 
+var damage_taken = 0
+
 var PlayerData = {
 	'AddonsInInventory':[],
 	'AddonsEquiped' : [],
@@ -251,9 +253,10 @@ func _process(delta):
 				var data = json.result
 				PlayerData = data['PlayersData']["Player%s"%[id]] 
 
-func take_damage(dmg):
-	.take_damage(dmg)
+func take_damage(target):
+	.take_damage(target)
 	state_machine.start('Hurt')
+	damage_taken = target.damage/10 
 	
 func death_handling():
 	Transition.change_scene("res://Menu/Menus/settlement.tscn")

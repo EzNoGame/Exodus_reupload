@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MainGame/Objects/Elavator_outside.png" type="Texture" id=1]
 [ext_resource path="res://MainGame/Objects/Elavator_inner.png" type="Texture" id=2]
 [ext_resource path="res://MainGame/Objects/PlayerSpawner.gd" type="Script" id=3]
-[ext_resource path="res://Assets/particles/light/light.png" type="Texture" id=4]
 [ext_resource path="res://sound effect/SFX/elevator bell ring SoundEffectsFactory.mp3" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
@@ -125,11 +124,6 @@ texture = ExtResource( 2 )
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 6
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 32, 8 )
-texture = ExtResource( 4 )
-texture_scale = 0.1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

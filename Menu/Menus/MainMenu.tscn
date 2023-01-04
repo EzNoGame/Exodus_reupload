@@ -54,6 +54,7 @@ rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource( 2 )
+disabled = true
 text = "Multi Player"
 
 [node name="Option" type="Button" parent="VBoxContainer"]

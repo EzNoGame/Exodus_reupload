@@ -11,3 +11,7 @@ func _ready():
 func range_attack():
 	.range_attack()
 	SfxController.playSFX("res://sound effect/SFX/Gunshot Sound Effect.mp3")
+
+func take_damage(target):
+	.take_damage(target)
+	SfxController.playSFX("res://sound effect/SFX/Pumpking_Damaged.mp3")

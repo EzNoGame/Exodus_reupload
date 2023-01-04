@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/enemy_hit_1.mp3-bf27b93de36ff5295fd9becb09eaa4ae.mp3str"
+
+[deps]
+
+source_file="res://sound effect/SFX/enemy_hit_1.mp3"
+dest_files=[ "res://.import/enemy_hit_1.mp3-bf27b93de36ff5295fd9becb09eaa4ae.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

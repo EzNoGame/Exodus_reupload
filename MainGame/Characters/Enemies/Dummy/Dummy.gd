@@ -32,3 +32,7 @@ func update_animation():
 			animation = 'walk'
 		
 	.update_animation()	
+
+func take_damage(target):
+	.take_damage(target)
+	SfxController.playSFX("res://sound effect/SFX/enemy_hit_1.mp3")

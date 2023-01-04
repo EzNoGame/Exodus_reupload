@@ -12,4 +12,4 @@ func _ready():
 	._ready()
 
 func _process(delta):
-	modulate = Color(1,1,1,float(life_span)/float(life_span_fix))
+	modulate = Color(2,2,2,float(life_span)/float(life_span_fix))

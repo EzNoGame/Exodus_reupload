@@ -1,16 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MainGame/EnemySpawner.gd" type="Script" id=1]
 [ext_resource path="res://MainGame/MainGameControll.gd" type="Script" id=2]
 [ext_resource path="res://MainGame/Objects/Ladder.tres" type="TileSet" id=3]
 [ext_resource path="res://MainGame/Maps/Lab/Lab.tres" type="TileSet" id=5]
 
+[sub_resource type="Environment" id=1]
+background_mode = 4
+fog_enabled = true
+glow_enabled = true
+glow_levels/3 = false
+glow_levels/4 = true
+glow_strength = 1.09
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_luminance_cap = 0.05
+glow_bicubic_upscale = true
+glow_high_quality = true
+
 [node name="MainGameScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
 [node name="Map" type="Node2D" parent="."]
+modulate = Color( 0.8, 0.8, 0.8, 1 )
 
 [node name="CollisionLayer" type="TileMap" parent="Map"]
 tile_set = ExtResource( 5 )

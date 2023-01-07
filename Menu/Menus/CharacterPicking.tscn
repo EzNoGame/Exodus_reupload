@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/Menus/CharacterPicking.gd" type="Script" id=1]
 [ext_resource path="res://Assets/icons/checkmark.png" type="Texture" id=2]
 [ext_resource path="res://Menu/Menus/MainMenu.tres" type="Theme" id=3]
-[ext_resource path="res://Assets/icons/pumpkin.png" type="Texture" id=4]
+[ext_resource path="res://Assets/icons/Pumpking2.png" type="Texture" id=4]
 [ext_resource path="res://Menu/Backgound/MainMenuBackgound.png" type="Texture" id=5]
+[ext_resource path="res://Assets/icons/Pumpking1.png" type="Texture" id=6]
 
 [sub_resource type="GDScript" id=1]
 
@@ -42,7 +43,7 @@ rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 4 )
-texture_hover = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
 texture_focused = ExtResource( 2 )
 expand = true
 

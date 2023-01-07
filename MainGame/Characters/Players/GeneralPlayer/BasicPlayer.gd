@@ -101,7 +101,7 @@ func update_velocity(delta):
 	#friction
 	else:
 		if abs(velocity.x) > 1:
-			velocity.x = velocity.x*1/2
+			velocity.x = velocity.x*2/3
 		else:
 			velocity.x = 0
 	
@@ -187,6 +187,12 @@ func update_animation():
 	
 	elif velocity.x < 50 and is_on_floor():
 		animation = 'Idle'
+	
+	if animation == 'Walk' and not $FootStep.playing:
+		$FootStep.playing = true
+	
+	elif animation != 'Walk' and $FootStep.playing:
+		$FootStep.playing = false
 		
 	if state_machine.get_current_node() != animation:
 		state_machine.travel(animation)
@@ -256,7 +262,13 @@ func _process(delta):
 func take_damage(target):
 	.take_damage(target)
 	state_machine.start('Hurt')
-	damage_taken = target.damage/10 
+	damage_taken = target.damage/10
+	yield(get_tree().create_timer(0.2), 'timeout')
+	knock_back(target)
+	
+	
+func knock_back(target):
+	velocity -= (target.get_global_position() - self.get_global_position()).normalized()*500
 	
 func death_handling():
 	Transition.change_scene("res://Menu/Menus/settlement.tscn")
@@ -283,6 +295,7 @@ func _on_Timer_timeout():
 	regen()
 
 func level_up():
+	SfxController.playSFX("res://sound effect/SFX/LevelUp.mp3")
 	PlayerData['Level'] += 1
 	EXP_to_next_level = pow(PlayerData['Level'],2)*3 + 20
 	var i = rng.randi_range(0,2)

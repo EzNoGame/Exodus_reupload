@@ -1,1 +1,1 @@
-{"MapName":"Lab","NumOfPlayer":1,"PlayersData":{"Player1":{"AddonsEquiped":[],"AddonsInInventory":[],"Character":"PumpKing","EXP":0,"Health":100,"Level":0,"Num_of_Blue":0,"Num_of_Green":0,"Num_of_Red":0}},"Score":{}}
+{"MapName":"Lab","NumOfPlayer":1,"PlayersData":{"Player1":{"AddonsEquiped":[],"AddonsInInventory":["TurtleShell"],"Character":"PumpKing","EXP":0,"Health":100,"Level":0,"Num_of_Blue":2,"Num_of_Green":0,"Num_of_Red":1}},"Score":{}}

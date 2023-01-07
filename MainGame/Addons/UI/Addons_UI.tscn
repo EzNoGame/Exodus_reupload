@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Menu/Menus/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://MainGame/Characters/Chips/Green_Chip.png" type="Texture" id=2]
@@ -9,8 +9,12 @@
 [ext_resource path="res://MainGame/Characters/Chips/Blue_Chip.png" type="Texture" id=7]
 [ext_resource path="res://MainGame/Addons/UI/InputFilterControl.gd" type="Script" id=8]
 [ext_resource path="res://MainGame/Addons/UI/Addons_UI.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Fonts/Default_regular.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Fonts/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://MainGame/Addons/UI/Inventory.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 10 )
 
 [node name="Node2D" type="CanvasLayer"]
 script = ExtResource( 9 )
@@ -101,6 +105,241 @@ texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 11 )
 
+[node name="TextureButton8" type="TextureButton" parent="Addons_Stored"]
+margin_top = 46.0
+margin_right = 36.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton9" type="TextureButton" parent="Addons_Stored"]
+margin_left = 46.0
+margin_top = 46.0
+margin_right = 82.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton10" type="TextureButton" parent="Addons_Stored"]
+margin_left = 92.0
+margin_top = 46.0
+margin_right = 128.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton11" type="TextureButton" parent="Addons_Stored"]
+margin_left = 138.0
+margin_top = 46.0
+margin_right = 174.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton12" type="TextureButton" parent="Addons_Stored"]
+margin_left = 184.0
+margin_top = 46.0
+margin_right = 220.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton13" type="TextureButton" parent="Addons_Stored"]
+margin_left = 230.0
+margin_top = 46.0
+margin_right = 266.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton14" type="TextureButton" parent="Addons_Stored"]
+margin_left = 276.0
+margin_top = 46.0
+margin_right = 312.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton15" type="TextureButton" parent="Addons_Stored"]
+margin_top = 92.0
+margin_right = 36.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton16" type="TextureButton" parent="Addons_Stored"]
+margin_left = 46.0
+margin_top = 92.0
+margin_right = 82.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton17" type="TextureButton" parent="Addons_Stored"]
+margin_left = 92.0
+margin_top = 92.0
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton18" type="TextureButton" parent="Addons_Stored"]
+margin_left = 138.0
+margin_top = 92.0
+margin_right = 174.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton19" type="TextureButton" parent="Addons_Stored"]
+margin_left = 184.0
+margin_top = 92.0
+margin_right = 220.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton20" type="TextureButton" parent="Addons_Stored"]
+margin_left = 230.0
+margin_top = 92.0
+margin_right = 266.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton21" type="TextureButton" parent="Addons_Stored"]
+margin_left = 276.0
+margin_top = 92.0
+margin_right = 312.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 36, 36 )
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton22" type="TextureButton" parent="Addons_Stored"]
+margin_top = 138.0
+margin_right = 36.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton23" type="TextureButton" parent="Addons_Stored"]
+margin_left = 46.0
+margin_top = 138.0
+margin_right = 82.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton24" type="TextureButton" parent="Addons_Stored"]
+margin_left = 92.0
+margin_top = 138.0
+margin_right = 128.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton2")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton25" type="TextureButton" parent="Addons_Stored"]
+margin_left = 138.0
+margin_top = 138.0
+margin_right = 174.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton3")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton26" type="TextureButton" parent="Addons_Stored"]
+margin_left = 184.0
+margin_top = 138.0
+margin_right = 220.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton3")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton27" type="TextureButton" parent="Addons_Stored"]
+margin_left = 230.0
+margin_top = 138.0
+margin_right = 266.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton4")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="TextureButton28" type="TextureButton" parent="Addons_Stored"]
+margin_left = 276.0
+margin_top = 138.0
+margin_right = 312.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 36, 36 )
+focus_neighbour_bottom = NodePath("../../Addons_Equiped/TextureButton5")
+theme = ExtResource( 1 )
+texture_focused = ExtResource( 5 )
+expand = true
+script = ExtResource( 11 )
+
 [node name="Addons_Equiped" type="HBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 203.0
@@ -113,10 +352,9 @@ margin_top = 14.0
 margin_right = 64.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 64, 64 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../../Addons_Stored/TextureButton22")
 size_flags_horizontal = 4
 size_flags_vertical = 4
-enabled_focus_mode = 0
 texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
@@ -127,10 +365,9 @@ margin_top = 14.0
 margin_right = 133.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 64, 64 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../../Addons_Stored/TextureButton24")
 size_flags_horizontal = 4
 size_flags_vertical = 4
-enabled_focus_mode = 0
 texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
@@ -141,10 +378,9 @@ margin_top = 14.0
 margin_right = 202.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 64, 64 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../../Addons_Stored/TextureButton26")
 size_flags_horizontal = 4
 size_flags_vertical = 4
-enabled_focus_mode = 0
 texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
@@ -155,10 +391,9 @@ margin_top = 14.0
 margin_right = 271.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 64, 64 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../../Addons_Stored/TextureButton27")
 size_flags_horizontal = 4
 size_flags_vertical = 4
-enabled_focus_mode = 0
 texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
@@ -169,10 +404,9 @@ margin_top = 14.0
 margin_right = 340.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 64, 64 )
-focus_mode = 0
+focus_neighbour_top = NodePath("../../Addons_Stored/TextureButton28")
 size_flags_horizontal = 4
 size_flags_vertical = 4
-enabled_focus_mode = 0
 texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
@@ -183,10 +417,8 @@ margin_top = 14.0
 margin_right = 409.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 64, 64 )
-focus_mode = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-enabled_focus_mode = 0
 texture_focused = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
@@ -287,7 +519,7 @@ margin_bottom = 190.0
 rect_min_size = Vector2( 150, 70 )
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
-custom_fonts/normal_font = ExtResource( 10 )
+custom_fonts/normal_font = SubResource( 1 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0

@@ -98,11 +98,20 @@ func update_velocity(delta):
 				velocity.x = h_cap * direction
 		
 		attack:
-			velocity = Vector2(0,velocity.y)
-			if len(attack_target) == 0:
+			if len(attack_target) > 0:
+				target_pos = attack_target[0].get_global_position()
+				if target_pos.x > self.position.x:
+					direction = 1
+				else:
+					direction = -1
+				velocity = Vector2(0,velocity.y)
+				attack_move()
+				continue
+				
+			else:
 				state = chase
 				continue 
-			attack_move()
+			
 
 func update_animation():
 	if direction != prev_direction and direction != 0:
@@ -128,6 +137,8 @@ func death_handling():
 	state_machine.travel('death')
 	
 func take_damage(target):
+	if len(self.target) == 0:
+		direction = -direction
 	exp_target = target.creator
 	.take_damage(target)
 	if health_curr > 0:

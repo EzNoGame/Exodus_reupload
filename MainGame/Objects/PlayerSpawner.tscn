@@ -111,10 +111,6 @@ anims/Spawn = SubResource( 2 )
 
 [node name="Sprites" type="Control" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="Inner" type="Sprite" parent="Sprites"]
 z_index = -1

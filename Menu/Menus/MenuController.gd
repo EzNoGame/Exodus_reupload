@@ -7,7 +7,7 @@ var Swap = false
 func _ready():
 	var ui = load(UI_path).instance()
 	self.add_child(ui)
-	BgmPlayer.stream = load("res://sound effect/BGM/Karstenholymoly_-_The_night_is_calling.mp3")
+	BgmPlayer.stream = load("res://sound effect/BGM/Major_BGM.mp3")
 	BgmPlayer.play()
 
 func _process(delta):

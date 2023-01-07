@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Major_BGM.mp3-e0a675f7b8a8e28e9222149b53c5285a.mp3str"
+
+[deps]
+
+source_file="res://sound effect/BGM/Major_BGM.mp3"
+dest_files=[ "res://.import/Major_BGM.mp3-e0a675f7b8a8e28e9222149b53c5285a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

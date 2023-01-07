@@ -50,6 +50,7 @@ format = 1
 [node name="BulletList" type="Node2D" parent="."]
 
 [node name="ParticleList" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource( 1 )

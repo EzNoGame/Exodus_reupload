@@ -74,6 +74,10 @@ func _process(_delta):
 				in_range_of_player = true
 		if not in_range_of_player:
 			i.queue_free()
+			
+	for i in $ParticleList.get_children():
+		if not i.emitting:
+			i.queue_free()
 
 func _on_BulletList_child_exiting_tree(node):
 	if node.scored:

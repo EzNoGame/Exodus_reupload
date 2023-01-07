@@ -1,11 +1,11 @@
 extends Node2D
 
-var rng = RandomNumberGenerator.new()
 var h_speed
 
 func _ready():
-	rng.randomize()
-	h_speed = rng.randf_range(-1,1)
+	h_speed = rand_range(-1,1)
+	var val = float($LabelControl/Label.text)
+	scale = Vector2(val/20+0.5, val/20+0.5)
 
 func _process(delta):
 	self.position.x += h_speed 

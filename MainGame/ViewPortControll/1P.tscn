@@ -36,9 +36,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2.5, 5 ),
-"transitions": PoolRealArray( 1.31951, 2.82843, 1.36604 ),
+"transitions": PoolRealArray( 1.31951, 1.10957, 1.36604 ),
 "update": 0,
-"values": [ Color( 1, 0, 0, 0.313726 ), Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.313726 ) ]
+"values": [ Color( 1, 0, 0, 0.235294 ), Color( 1, 0, 0, 0.156863 ), Color( 1, 0, 0, 0.235294 ) ]
 }
 
 [node name="Game" type="Node"]

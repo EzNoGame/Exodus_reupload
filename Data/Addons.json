@@ -13,8 +13,23 @@
             "h_acc" : 0.5,
             "h_cap" : 0.5
         },
-        "other":{
+        "script" : false
+    }
+},
+"TickingBomb":{
+    "Description":"A broken timing bomb, there can be surprise at any given point in time",
+    "Cost":{
+        "Red": 5,
+        "Blue":0,
+        "Green":0
+    },
+    "effect":{
+        "addition":{
 
-        }
+        },
+        "multiply":{
+
+        },
+        "script" : true
     }
 }}

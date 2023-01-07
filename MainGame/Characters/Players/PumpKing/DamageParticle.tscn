@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainGame/Characters/Players/PumpKing/DamagedParticle.tres" type="Material" id=1]
+
+[node name="Particles2D" type="Particles2D"]
+emitting = false
+amount = 30
+lifetime = 1.5
+one_shot = true
+process_material = ExtResource( 1 )
